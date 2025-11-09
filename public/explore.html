@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Coding Guides - Coding Guide</title>
+    <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .category p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category li {
+            margin-bottom: 0.5rem;
+        }
+
+        .category a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .category a:hover {
+            color: #667eea;
+        }
+
+        .featured {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .featured-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .featured-item:hover {
+            background: #e9ecef;
+        }
+
+        .featured-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .featured-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #ff5252;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+        <h1>Coding Guide</h1>
+        <p>Explore and Master Programming</p>
+    </header>
+
+    <nav>
+        <a href="landing.html">Home</a>
+        <a href="login.html">Full Guide</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Explore Our Comprehensive Coding Guides</h2>
+            <p>Dive into detailed tutorials, best practices, and resources for various programming languages and technologies.</p>
+        </section>
+
+        <section class="categories">
+            <div class="category">
+                <h3>Frontend Development</h3>
+                <p>Master the art of creating beautiful and interactive user interfaces.</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Backend Development</h3>
+                <p>Build robust server-side applications and APIs.</p>
+                <ul>
+                    <li>Python</li>
+                    <li>Node.js</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Programming Languages</h3>
+                <p>Learn fundamental and advanced programming concepts.</p>
+                <ul>
+                    <li>Java</li>
+                    <li>C++</li>
+                    <li>TypeScript</li>
+                    <li>C#</li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Coding Practice</h3>
+                <p>Sharpen your skills with coding challenges and exercises.</p>
+                <ul>
+                    <li>LeetCode</li>
+                    <li>HackerRank</li>
+                    <li>CodeChef</li>
+                    <li>GeeksforGeeks Practice</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h3>Featured Resources</h3>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <h4>Web Development Roadmap</h4>
+                    <p>A comprehensive guide to becoming a full-stack web developer.</p>
+                </div>
+                <div class="featured-item">
+                    <h4>Data Structures & Algorithms</h4>
+                    <p>Essential concepts for efficient problem-solving and coding interviews.</p>
+                </div>
+                <div class="featured-item">
+                    <h4>Version Control with Git</h4>
+                    <p>Learn to manage your code and collaborate effectively.</p>
+                </div>
+                <div class="featured-item">
+                    <h4>API Development</h4>
+                    <p>Build and consume RESTful APIs for modern applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <a href="login.html">Full Course</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add click tracking
+        document.querySelectorAll('.category a').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Link clicked:', this.textContent);
+                // You can add analytics here
+            });
+        });
+
+        // Animate categories on scroll
+        const categories = document.querySelectorAll('.category');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        categories.forEach(category => {
+            category.style.opacity = '0';
+            category.style.transform = 'translateY(30px)';
+            category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(category);
+        });
+
+        // Add hover effects for featured items
+        const featuredItems = document.querySelectorAll('.featured-item');
+        featuredItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+                item.style.transition = 'transform 0.3s ease';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Dynamic title update
+        document.addEventListener('DOMContentLoaded', () => {
+            const titles = ['Explore Coding Guides', 'Master Programming', 'Learn with Us'];
+            let index = 0;
+            setInterval(() => {
+                document.querySelector('.hero h2').textContent = titles[index];
+                index = (index + 1) % titles.length;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

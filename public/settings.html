@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - Settings</title>
+      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+      <style>
+          body {
+              background: #f0f4f8;
+              font-family: 'Inter', sans-serif;
+          }
+          .container {
+              background: white;
+              padding: 2rem;
+              border-radius: 1rem;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+              max-width: 480px;
+              margin: 3rem auto 2rem;
+              opacity: 0;
+              transform: translateY(30px);
+              animation: fadeInUp 0.8s ease forwards;
+          }
+          @keyframes fadeInUp {
+              from {
+                  opacity: 0;
+                  transform: translateY(30px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+          .setting-group {
+              margin-bottom: 1.5rem;
+          }
+          .setting-group h3 {
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+              color: #333;
+          }
+          label {
+              display: block;
+              margin-bottom: 0.5rem;
+              cursor: pointer;
+              font-weight: 500;
+              color: #555;
+          }
+          input[type="checkbox"] {
+              margin-right: 0.5rem;
+              accent-color: #007bff;
+              cursor: pointer;
+              transition: transform 0.2s ease;
+          }
+          input[type="checkbox"]:hover {
+              transform: scale(1.1);
+          }
+          select {
+              width: 100%;
+              padding: 0.5rem;
+              border-radius: 0.5rem;
+              border: 1px solid #ccc;
+              font-size: 1rem;
+              transition: box-shadow 0.3s ease, border-color 0.3s ease;
+          }
+          select:focus {
+              outline: none;
+              border-color: #007bff;
+              box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+          }
+          #save-settings {
+              background: #007bff;
+              color: white;
+              padding: 0.75rem 1.5rem;
+              border: none;
+              border-radius: 0.5rem;
+              font-size: 1rem;
+              font-weight: 600;
+              cursor: pointer;
+              box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+              transition: background 0.3s ease, transform 0.3s ease;
+          }
+          #save-settings:hover {
+              background: #0056b3;
+              transform: scale(1.05);
+          }
+      </style>
+  </head>
+  <body>
+      <header class="headbar">
+          <div class="left">
+           <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
+          </div>
+            <div class="right">
+                <a href="home.html" class="logout-btn flex items-center gap-2">
+                  HOME
+                </a>
+                <a href="landing.html" class="logout-btn flex items-center gap-2">
+                  LOGOUT
+                </a>
+            </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Your guide to improve your coding
+            </marquee>
+          </div>
+      </header>
+
+      <div class="container">
+        <section class="hero">
+            <h2>Settings</h2>
+            <p>Customize your experience on Coding Guide.</p>
+        </section>
+
+        <section class="settings">
+            <div class="setting-group">
+                <h3>Appearance</h3>
+                <label>
+                    <input type="checkbox" id="dark-mode"> Enable Dark Mode
+                </label>
+                <label>
+                    <input type="checkbox" id="compact-view"> Compact View
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <h3>Notifications</h3>
+                <label>
+                    <input type="checkbox" id="email-notifications" checked> Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" id="push-notifications"> Push Notifications
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <h3>Privacy</h3>
+                <label>
+                    <input type="checkbox" id="analytics"> Allow Analytics
+                </label>
+                <label>
+                    <input type="checkbox" id="public-profile"> Public Profile
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <h3>Language</h3>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                </select>
+            </div>
+
+            <button class="btn" id="save-settings">Save Settings</button>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+      <script>
+        // Basic settings functionality
+        document.getElementById('save-settings').addEventListener('click', function() {
+            alert('Settings saved!');
+            // In a real app, this would save to server or localStorage
+        });
+
+        // Search functionality
+        function performSearch() {
+            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+            // Find matching link in categories on home page
+            const links = [
+                { text: 'html', url: 'https://www.geeksforgeeks.org/html/html-tutorial/' },
+                { text: 'css', url: 'https://www.geeksforgeeks.org/css/css-cheat-sheet-a-basic-guide-to-css/' },
+                { text: 'javascript', url: 'https://www.geeksforgeeks.org/javascript/javascript-tutorial/' },
+                { text: 'react', url: 'https://www.geeksforgeeks.org/reactjs/react/' },
+                { text: 'python', url: 'https://www.geeksforgeeks.org/python/python-programming-language-tutorial/' },
+                { text: 'node.js', url: 'https://www.geeksforgeeks.org/node-js/nodejs/' },
+                { text: 'php', url: 'https://www.geeksforgeeks.org/php/php-tutorial/' },
+                { text: 'sql', url: 'https://www.geeksforgeeks.org/sql/sql-tutorial/' },
+                { text: 'java', url: 'https://www.geeksforgeeks.org/java/java/' },
+                { text: 'c++', url: 'https://www.geeksforgeeks.org/cpp/c-plus-plus/' },
+                { text: 'typescript', url: 'https://www.geeksforgeeks.org/typescript/typescript-tutorial/' },
+                { text: 'c#', url: 'https://www.geeksforgeeks.org/c-sharp/csharp-tutorial/' },
+                { text: 'leetcode', url: 'https://leetcode.com/' },
+                { text: 'hackerrank', url: 'https://www.hackerrank.com/' },
+                { text: 'codechef', url: 'https://www.codechef.com/' },
+                { text: 'geeksforgeeks practice', url: 'https://www.geeksforgeeks.org/explore' }
+            ];
+            const found = links.find(link => link.text === query);
+            if (found) {
+                window.open(found.url, '_blank');
+            } else {
+                alert('No matching language found for "' + query + '"');
+            }
+        }
+        document.querySelector('.search-btn').addEventListener('click', performSearch);
+        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+      </script>
+    </body>
+</html>

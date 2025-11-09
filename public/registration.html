@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .float { animation: float 6s ease-in-out infinite; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 flex items-center justify-center p-6 relative overflow-hidden">
+
+  <!-- Floating Background Circles -->
+  <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full float"></div>
+  <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full float" style="animation-delay: -3s;"></div>
+
+  <!-- Signup Container -->
+  <div class="glass-card p-8 rounded-2xl shadow-2xl w-full max-w-md relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <div class="flex justify-center mb-4">
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600">
+          <i data-lucide="user-plus" class="w-8 h-8 text-white"></i>
+        </div>
+      </div>
+      <h1 class="text-2xl font-bold text-white">Create Your Account</h1>
+      <p class="text-gray-300 text-sm">Sign up to continue your journey</p>
+    </div>
+
+    <!-- User/Admin Switch -->
+    <div class="relative flex justify-center bg-white/10 rounded-full p-1 mb-6 overflow-hidden">
+      <div id="switch-indicator" class="absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] bg-blue-600 rounded-full transition-transform z-0"></div>
+      <button id="user-switch" class="relative z-10 w-1/2 py-2 rounded-full text-sm font-semibold text-white">User</button>
+      <button id="admin-switch" class="relative z-10 w-1/2 py-2 rounded-full text-sm font-semibold text-gray-300">Admin</button>
+    </div>
+
+    <!-- Signup Form -->
+    <form id="signupForm" class="space-y-4">
+      <input type="hidden" name="role" id="role" value="user">
+
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-200">Username</label>
+        <div class="relative mt-1">
+          <i data-lucide="user" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+          <input id="username" name="username" type="text" required
+            class="block w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-200">Email</label>
+        <div class="relative mt-1">
+          <i data-lucide="mail" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+          <input id="email" name="email" type="email" required
+            class="block w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-200">Password</label>
+        <div class="relative mt-1">
+          <i data-lucide="lock" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+          <input id="password" name="password" type="password" required
+            class="block w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+        <p id="passwordWarning" class="mt-2 text-sm text-red-400 hidden">
+          Password must be at least 8 characters long, include uppercase, lowercase, number, and a special character.
+        </p>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium text-gray-200">Confirm Password</label>
+        <div class="relative mt-1">
+          <i data-lucide="lock" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+          <input id="confirm-password" name="confirm-password" type="password" required
+            class="block w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- Login Redirect -->
+      <p class="text-center text-sm text-gray-300 mt-4">
+        Already have an account?
+        <a href="login.html" class="font-medium text-blue-400 hover:text-blue-300 transition">Log in</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const userSwitch = document.getElementById('user-switch');
+    const adminSwitch = document.getElementById('admin-switch');
+    const switchIndicator = document.getElementById('switch-indicator');
+    const roleInput = document.getElementById('role');
+    const passwordInput = document.getElementById('password');
+    const passwordWarning = document.getElementById('passwordWarning');
+
+    function updateSwitchIndicator() {
+      if (userSwitch.classList.contains('text-white')) {
+        switchIndicator.style.transform = 'translateX(0)';
+        roleInput.value = 'user';
+      } else {
+        switchIndicator.style.transform = 'translateX(100%)';
+        roleInput.value = 'admin';
+      }
+    }
+    updateSwitchIndicator();
+
+    userSwitch.addEventListener('click', () => {
+      userSwitch.classList.add('text-white');
+      adminSwitch.classList.remove('text-white');
+      adminSwitch.classList.add('text-gray-300');
+      updateSwitchIndicator();
+    });
+
+    adminSwitch.addEventListener('click', () => {
+      adminSwitch.classList.add('text-white');
+      userSwitch.classList.remove('text-white');
+      userSwitch.classList.add('text-gray-300');
+      updateSwitchIndicator();
+    });
+
+    // Password validation (live check)
+    passwordInput.addEventListener('input', () => {
+      const password = passwordInput.value;
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+      if (password === "") {
+        passwordWarning.classList.add("hidden"); // Hide when empty
+      } else if (!regex.test(password)) {
+        passwordWarning.classList.remove("hidden"); // Show if invalid
+      } else {
+        passwordWarning.classList.add("hidden"); // Hide if valid
+      }
+    });
+
+    const signupForm = document.getElementById('signupForm');
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = passwordInput.value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const role = document.getElementById('role').value;
+
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+      if (!regex.test(password)) {
+        alert("Password does not meet requirements!");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password, role }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert(data.message);
+          window.location.href = '/login.html';
+        } else {
+          alert('Error: ' + data.message);
+        }
+      } catch (err) {
+        alert('Registration failed. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

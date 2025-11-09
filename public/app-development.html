@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - App Development</title>
+      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+      <style>
+        .option-container {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+        }
+        .option {
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          padding: 20px;
+          width: 40%;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .option h3 {
+          text-align: center;
+          color: #007bff;
+        }
+        .option ul {
+          margin-top: 10px;
+          list-style-type: disc;
+          padding-left: 20px;
+        }
+      </style>
+  </head>
+      <body>
+      <header class="headbar">
+          <div class="left">
+            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
+          </div>
+          <div class="searchbar-container">
+            <input
+              type="text"
+              placeholder="Search for your coding Language..."
+              class="searchbar-input"
+            />
+            </div>
+          <div class="right">
+            <a href="home.html" class="logout-btn">HOME</a>
+            <a href="landing.html" class="logout-btn">Logout</a>
+            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
+          </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Your guide to improve your coding
+            </marquee>
+          </div>
+      </header>
+
+      <div class="container">
+        <section class="hero">
+            <h2>App Development Roadmap</h2>
+            <p>Choose your path to master mobile app development for Android and iOS platforms.</p>
+        </section>
+
+        <section class="option-container">
+          <div class="option">
+            <h3>Android Development</h3>
+            <ul>
+              <li>Learn Java and Kotlin basics</li>
+              <li>Understand Android Studio and SDK</li>
+              <li>Master UI design with XML and Jetpack Compose</li>
+              <li>Work with databases and RESTful APIs</li>
+              <li>Test and debug Android apps</li>
+              <li>Publish apps on Google Play Store</li>
+            </ul>
+          </div>
+
+          <div class="option">
+            <h3>iOS Development</h3>
+            <ul>
+              <li>Learn Swift programming language</li>
+              <li>Understand Xcode and iOS SDK</li>
+              <li>Master UI design with SwiftUI and Storyboards</li>
+              <li>Work with Core Data and RESTful APIs</li>
+              <li>Test and debug iOS apps</li>
+              <li>Publish apps on Apple App Store</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+      <script>
+        // Search functionality
+        function performSearch() {
+            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+            // Search for keywords in app development options
+            const optionItems = document.querySelectorAll('.option ul li');
+            let found = false;
+            optionItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    found = true;
+                    item.style.backgroundColor = 'yellow';
+                    item.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            if (!found) {
+                alert('No matching content found for "' + query + '"');
+            }
+        }
+
+        document.querySelector('.search-btn').addEventListener('click', performSearch);
+
+        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+      </script>
+  </body>
+</html>

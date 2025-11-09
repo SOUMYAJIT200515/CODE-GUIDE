@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <title>Forgot Password</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .float { animation: float 6s ease-in-out infinite; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* --- Custom Animations --- */
+    @keyframes flyAway {
+      0% { transform: translate(0, -50%) rotate(0deg); opacity: 1; }
+      100% { transform: translate(200px, -150%) rotate(45deg); opacity: 0; }
+    }
+    @keyframes fadeOutText { to { opacity: 0; } }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideOutRight {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(100%); }
+    }
+
+    .sending .button-text { animation: fadeOutText 0.3s ease-out forwards; }
+    .sending .plane-icon { display: block; animation: flyAway 1s ease-in forwards; }
+    .notification-enter { animation: slideInRight 0.5s ease-out forwards; }
+    .notification-exit { animation: slideOutRight 0.5s ease-in forwards; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 flex items-center justify-center p-6 relative overflow-hidden">
+
+  <!-- Floating Background Circles -->
+  <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full float"></div>
+  <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full float" style="animation-delay:-3s;"></div>
+
+  <!-- Forgot Password Card -->
+  <div class="glass-card p-8 rounded-2xl shadow-2xl w-full max-w-md relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <div class="flex justify-center mb-4">
+        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600">
+          <i data-lucide="mail-question" class="w-8 h-8 text-white"></i>
+        </div>
+      </div>
+      <h1 class="text-2xl font-bold text-white">Forgot Password?</h1>
+      <p class="text-gray-300 text-sm">No worries, we'll send you reset instructions.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="forgot-password-form" class="space-y-4">
+      <!-- Email Input -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-200">Email Address</label>
+        <div class="relative mt-1">
+          <i data-lucide="mail" class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+          <input id="email" name="email" type="email" autocomplete="email" required
+            class="block w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+      </div>
+
+      <!-- Send Reset Button -->
+      <div>
+        <button type="submit"
+          class="relative overflow-hidden w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition">
+          <span class="button-text">Send Reset Link</span>
+          <svg class="plane-icon hidden absolute right-1/2 top-1/2 h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 .01 7z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Back to Login -->
+      <p class="text-center text-sm text-gray-300 mt-4">
+        Remember your password? 
+        <a href="login.html" class="font-medium text-blue-400 hover:text-blue-300 transition">Back to Login</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const button = event.submitter;
+
+      if (button.classList.contains('sending')) return;
+      button.classList.add('sending');
+      button.disabled = true;
+
+      setTimeout(() => {
+        showNotification(`Reset link sent to ${email}`);
+      }, 1000);
+
+      setTimeout(() => {
+        button.classList.remove('sending');
+        button.disabled = false;
+      }, 2500);
+    });
+
+    function showNotification(message) {
+      const existing = document.getElementById('forgot-notification');
+      if (existing) existing.remove();
+
+      const notification = document.createElement('div');
+      notification.id = 'forgot-notification';
+      notification.className = 'fixed top-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-xl notification-enter';
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.classList.remove('notification-enter');
+        notification.classList.add('notification-exit');
+        notification.addEventListener('animationend', () => notification.remove());
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

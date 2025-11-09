@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - Home</title>
+      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <header class="headbar">
+          <div class="left">
+            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
+          </div>
+          <div class="searchbar-container">
+            <input
+              type="text"
+              placeholder="🔍 Search for your coding Language..."
+              class="searchbar-input"
+              style="border-radius: 24px; padding-left: 50px; padding-right: 50px; height: 40px; font-size: 14px;"
+            />
+            <button class="search-btn" style="border-radius: 50%; width: 36px; height: 36px; right: 10px; top: 50%; transform: translateY(-50%);">
+              🔍
+            </button>
+            </div>
+          <div class="right">
+            <a href="landing.html" class="logout-btn flex items-center gap-2">
+              🚪
+              Logout
+            </a>
+            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
+          </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Your guide to improve your coding
+            </marquee>
+          </div>
+      </header>
+
+      
+      <div class="container">
+        <section class="hero">
+            <h2>Explore Our Comprehensive Coding Guides</h2>
+            <p>Dive into detailed tutorials, best practices, and resources for various programming languages and technologies.</p>
+        </section>
+
+        <section class="categories">
+            <div class="category">
+                <h3>Frontend Development</h3>
+                <p>Master the art of creating beautiful and interactive user interfaces.</p>
+                <ul>
+                    <li><a href="https://www.geeksforgeeks.org/html/html-tutorial/">HTML</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/css/css-cheat-sheet-a-basic-guide-to-css/">CSS</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/javascript/javascript-tutorial/">JavaScript</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/reactjs/react/">React</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Backend Development</h3>
+                <p>Build robust server-side applications and APIs.</p>
+                <ul>
+                    <li><a href="https://www.geeksforgeeks.org/python/python-programming-language-tutorial/">Python</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/node-js/nodejs/">Node.js</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/php/php-tutorial/">PHP</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/sql/sql-tutorial/">SQL</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Programming Languages</h3>
+                <p>Learn fundamental and advanced programming concepts.</p>
+                <ul>
+                    <li><a href="https://www.geeksforgeeks.org/java/java/">Java</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/cpp/c-plus-plus/">C++</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/typescript/typescript-tutorial/">TypeScript</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/c-sharp/csharp-tutorial/">C#</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Coding Practice</h3>
+                <p>Sharpen your skills with coding challenges and exercises.</p>
+                <ul>
+                    <li><a href="https://leetcode.com/">LeetCode</a></li>
+                    <li><a href="https://www.hackerrank.com/">HackerRank</a></li>
+                    <li><a href="https://www.codechef.com/">CodeChef</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/explore">GeeksforGeeks Practice</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h3>Learning Roadmaps</h3>
+            <p>Follow structured guides to master key coding topics.</p>
+             <div class="featured-grid">
+               
+            <p><a href="featured.html">View All Featured Resources</a></p>
+        </section>
+
+        <section class="unique">
+            <h3>Unique Feature</h3>
+            <p>Discover our exclusive coding challenges and interactive tutorials designed to enhance your learning experience.</p>
+            <p><a href="unique.html">Explore Unique Features</a></p>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+
+      <!-- Improvement Comment Widget -->
+      <div id="improve-button">📝</div>
+      <div id="improve-modal" class="improve-modal">
+        <div class="improve-header">
+          <span>Improvement Comment</span>
+          <button id="close-improve">×</button>
+        </div>
+        <form id="improve-form">
+          <label for="improve-category">Category:</label>
+          <select id="improve-category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="UI">UI</option>
+            <option value="Performance">Performance</option>
+            <option value="Content">Content</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="improve-rating">Rating:</label>
+          <select id="improve-rating" required>
+            <option value="" disabled selected>Select rating</option>
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+          </select>
+          <label for="improve-comment">Comment:</label>
+          <textarea id="improve-comment" rows="4" placeholder="Enter your comment here..." required></textarea>
+          <div class="improve-buttons">
+            <button type="submit">Submit</button>
+            <button type="button" id="cancel-improve">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+
+      <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add click tracking
+        document.querySelectorAll('.category a').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Link clicked:', this.textContent);
+                // You can add analytics here
+            });
+        });
+
+        // Animate categories on scroll
+        const categories = document.querySelectorAll('.category');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        categories.forEach(category => {
+            category.style.opacity = '0';
+            category.style.transform = 'translateY(30px)';
+            category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(category);
+        });
+
+        // Add hover effects for featured items
+        const featuredItems = document.querySelectorAll('.featured-item');
+        featuredItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+                item.style.transition = 'transform 0.3s ease';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Dynamic title update
+        document.addEventListener('DOMContentLoaded', () => {
+            const titles = ['Master Coding Skills', 'Build Amazing Projects', 'Join Our Community'];
+            let index = 0;
+            setInterval(() => {
+                document.querySelector('.hero h2').textContent = titles[index];
+                index = (index + 1) % titles.length;
+            }, 3000);
+        });
+
+        // Animate unique section
+        const uniqueSection = document.querySelector('.unique');
+        uniqueSection.style.opacity = '0';
+        uniqueSection.style.transform = 'translateY(50px)';
+        uniqueSection.style.transition = 'opacity 1s ease, transform 1s ease';
+
+        const uniqueObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        uniqueObserver.observe(uniqueSection);
+
+        // Animate featured section
+        const featuredSection = document.querySelector('.featured');
+        featuredSection.style.opacity = '0';
+        featuredSection.style.transform = 'translateY(50px)';
+        featuredSection.style.transition = 'opacity 1s ease, transform 1s ease';
+
+        const featuredObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        featuredObserver.observe(featuredSection);
+
+        // Search functionality
+        function performSearch() {
+            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+            // Find matching link in categories
+            const links = document.querySelectorAll('.category ul li a');
+            let found = false;
+            links.forEach(link => {
+                if (link.textContent.toLowerCase() === query) {
+                    found = true;
+                    window.open(link.href, '_blank');
+                }
+            });
+            if (!found) {
+                alert('No matching language found for "' + query + '"');
+            }
+        }
+
+        document.querySelector('.search-btn').addEventListener('click', performSearch);
+
+        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+    </script>
+    <script src='https://cdn.jotfor.ms/agent/embedjs/01993a3e0e01789fa93b8b42e75bf6311a76/embed.js?skipWelcome=1&maximizable=1'></script>
+</body>
+</html>

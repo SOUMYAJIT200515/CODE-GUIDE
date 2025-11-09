@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - Code Runner</title>
+        <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <header class="headbar">
+          <div class="left">
+            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
+          </div>
+          <div class="right">
+            <a href="home.html" class="logout-btn">HOME</a>
+            <a href="landing.html" class="logout-btn">Logout</a>
+            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
+          </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Your guide to improve your coding
+            </marquee>
+          </div>
+      </header>
+
+      
+      <div class="container">
+        <section class="code-runner">
+            <h3>Online Code Runner</h3>
+            <p>Test your code here:</p>
+            <select id="language-select">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="cpp">C++</option>
+                <option value="c">C</option>
+            </select>
+            <textarea id="code-input" rows="10" cols="50" placeholder="Enter your code here..."></textarea>
+            <br>
+            <button id="run-code">Run Code</button>
+            <div id="output"></div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+      <script>
+        // Code runner functionality
+        let pyodide = null;
+        async function loadPyodide() {
+            if (!pyodide) {
+                pyodide = await loadPyodideModule();
+            }
+            return pyodide;
+        }
+
+        async function runCodeWithAPI(language, code) {
+            const apiUrl = 'https://api.jdoodle.com/v1/execute';
+            const clientId = 'your_client_id'; // Replace with your JDoodle client ID
+            const clientSecret = 'your_client_secret'; // Replace with your JDoodle client secret
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    script: code,
+                    language: language,
+                    versionIndex: '0',
+                    clientId: clientId,
+                    clientSecret: clientSecret
+                })
+            });
+
+            const data = await response.json();
+            return data.output || data.error;
+        }
+
+        document.getElementById('run-code').addEventListener('click', async function() {
+            const code = document.getElementById('code-input').value;
+            const language = document.getElementById('language-select').value;
+            const output = document.getElementById('output');
+            output.innerHTML = 'Running...';
+            if (language === 'javascript') {
+                try {
+                    const result = eval(code);
+                    output.innerHTML = 'Result: ' + result;
+                } catch (e) {
+                    output.innerHTML = 'Error: ' + e.message;
+                }
+            } else if (language === 'python') {
+                try {
+                    const py = await loadPyodide();
+                    const result = await py.runPythonAsync(code);
+                    output.innerHTML = 'Result: ' + result;
+                } catch (e) {
+                    output.innerHTML = 'Error: ' + e.message;
+                }
+            } else if (language === 'java' || language === 'cpp' || language === 'c') {
+                try {
+                    const result = await runCodeWithAPI(language, code);
+                    output.innerHTML = 'Result: ' + result;
+                } catch (e) {
+                    output.innerHTML = 'Error: ' + e.message;
+                }
+            } else {
+                output.innerHTML = 'Code execution for ' + language + ' is not supported.';
+            }
+        });
+    </script>
+    </body>
+</html>

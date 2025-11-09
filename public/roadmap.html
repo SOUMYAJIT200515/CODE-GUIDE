@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - Web Development Roadmap</title>
+      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+  </head>
+      <body>
+      <header class="headbar">
+          <div class="left">
+            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
+          </div>
+          <div class="searchbar-container">
+            <input
+              type="text"
+              placeholder="Search for your coding Language..."
+              class="searchbar-input"
+            />
+            <button class="search-btn">🔍</button>
+            </div>
+          <div class="right">
+            <a href="home.html" class="logout-btn">HOME</a>
+            <a href="landing.html" class="logout-btn">Logout</a>
+            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
+          </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Your guide to improve your coding
+            </marquee>
+          </div>
+      </header>
+
+      
+      <div class="container">
+        <section class="hero">
+            <h2>Web Development Roadmap</h2>
+            <p>A comprehensive guide to becoming a full-stack web developer.</p>
+        </section>
+        <section class="roadmap">
+            <h3>Steps to Follow</h3>
+            <ul>
+                <li>Learn HTML and CSS basics</li>
+                <li>Master JavaScript</li>
+                <li>Understand frontend frameworks like React</li>
+                <li>Learn backend technologies like Node.js</li>
+                <li>Build full-stack projects</li>
+            </ul>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+      <script>
+        // Search functionality
+        function performSearch() {
+            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+            // Search for keywords in roadmap
+            const roadmapItems = document.querySelectorAll('.roadmap ul li');
+            let found = false;
+            roadmapItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    found = true;
+                    item.style.backgroundColor = 'yellow';
+                    item.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            if (!found) {
+                alert('No matching content found for "' + query + '"');
+            }
+        }
+
+        document.querySelector('.search-btn').addEventListener('click', performSearch);
+
+        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+      </script>
+    </body>
+</html>

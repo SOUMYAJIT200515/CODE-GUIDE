@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CODING GUIDE - Admin Dashboard</title>
+      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
+      <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <header class="headbar">
+          <div class="left">
+            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
+            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE - Admin</h1>
+          </div>
+          <div class="searchbar-container">
+            <input
+              type="text"
+              placeholder="Search students or resources"
+              class="searchbar-input"
+              style="border-radius: 24px; padding-left: 50px; padding-right: 50px; height: 40px; font-size: 14px;"
+            />
+            <button class="search-btn" style="border-radius: 50%; width: 36px; height: 36px; right: 10px; top: 50%; transform: translateY(-50%);">
+              🔍
+            </button>
+          </div>
+          <div class="right">
+            <a href="landing.html" class="logout-btn flex items-center gap-2">
+              🚪
+              Logout
+            </a>
+            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px" width="100px" alt="Profile" /></a>
+          </div>
+      </header>
+      <header class="headbar1">
+          <div class="down">
+            <marquee direction="right" behavior="alternate">
+              Admin Dashboard: Monitor and Guide Students
+            </marquee>
+          </div>
+      </header>
+
+      <div class="container">
+        <section class="hero">
+            <h2>Admin Dashboard</h2>
+            <p>Monitor student progress, manage resources, and oversee the learning platform.</p>
+        </section>
+
+        <section class="student-progress">
+            <h3>Student Progress Overview</h3>
+            <p>Track the learning progress of enrolled students.</p>
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Course</th>
+                        <th>Progress</th>
+                        <th>Completion %</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Johnson</td>
+                        <td>JavaScript</td>
+                        <td><div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div></td>
+                        <td>75%</td>
+                        <td><a href="profile.html">View Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>Bob Smith</td>
+                        <td>Python</td>
+                        <td><div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div></td>
+                        <td>60%</td>
+                        <td><a href="profile.html">View Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>Charlie Brown</td>
+                        <td>React</td>
+                        <td><div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div></td>
+                        <td>90%</td>
+                        <td><a href="profile.html">View Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>Diana Prince</td>
+                        <td>SQL</td>
+                        <td><div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div></td>
+                        <td>45%</td>
+                        <td><a href="profile.html">View Profile</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="monitoring">
+            <h3>Student Monitoring</h3>
+            <p>Recent activities and alerts from students.</p>
+            <div class="activity-log">
+                <div class="activity-item">
+                    <p><strong>Alice Johnson</strong> completed Module 5 in JavaScript - 2 hours ago</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>Bob Smith</strong> started Python Basics course - 5 hours ago</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>Charlie Brown</strong> submitted React project - 1 day ago</p>
+                </div>
+                <div class="activity-item">
+                    <p><strong>Diana Prince</strong> asked a question in SQL forum - 2 days ago</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-tools">
+            <h3>Admin Tools</h3>
+            <p>Manage platform resources and settings.</p>
+            <ul>
+                <li><a href="settings.html">Platform Settings</a></li>
+                <li><a href="community.html">Manage Community</a></li>
+                <li><a href="featured.html">Update Featured Resources</a></li>
+            </ul>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+      <style>
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .progress-table th, .progress-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .progress-table th {
+            background-color: #f2f2f2;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 20px;
+            background-color: #4CAF50;
+            transition: width 0.3s;
+        }
+        .activity-log {
+            margin-top: 20px;
+        }
+        .activity-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .admin-tools ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .admin-tools li {
+            margin-bottom: 10px;
+        }
+        .admin-tools a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .admin-tools a:hover {
+            text-decoration: underline;
+        }
+      </style>
+  </body>
+</html>

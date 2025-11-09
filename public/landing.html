@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coding Guide - Your Ultimate Coding Companion</title>
+    <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('imag/back.jpg');
+            background-size: cover;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 0 10px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #ff5252;
+        }
+
+        .features {
+            padding: 80px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .animated-bg div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .animated-bg div:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .animated-bg div:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .animated-bg div:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .animated-bg div:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .animated-bg div:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .animated-bg div:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .animated-bg div:nth-child(7) { left: 70%; animation-delay: 0s; }
+        .animated-bg div:nth-child(8) { left: 80%; animation-delay: 1s; }
+        .animated-bg div:nth-child(9) { left: 90%; animation-delay: 2s; }
+        .animated-bg div:nth-child(10) { left: 100%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1.2rem; }
+            .btn { padding: 12px 25px; margin: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="animated-bg">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hero-content">
+            <img src="imag/logo.jpeg" alt="Logo" height="200" style="vertical-align: middle; margin-bottom: 20px;" />
+            <h1>Welcome to Coding Guide</h1>
+            <p>Your ultimate companion for mastering programming languages, frameworks, and best practices. Explore tutorials, practice coding, and elevate your skills to the next level.</p>
+            <a href="explore.html" class="btn">Explore Guide</a>
+            <a href="login.html" class="btn">Get Started</a>
+        </div>
+    </section>
+</body>
+</html>
