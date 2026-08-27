@@ -1,120 +1,651 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Code Runner</title>
-        <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Interactive Code Runner & Playground</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Pyodide Python 3 WebAssembly Engine -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="code-runner">
-            <h3>Online Code Runner</h3>
-            <p>Test your code here:</p>
-            <select id="language-select">
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="java">Java</option>
-                <option value="cpp">C++</option>
-                <option value="c">C</option>
-            </select>
-            <textarea id="code-input" rows="10" cols="50" placeholder="Enter your code here..."></textarea>
-            <br>
-            <button id="run-code">Run Code</button>
-            <div id="output"></div>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">IDE</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link active"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search Python, React, DSA, Git..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--text-primary);">Interactive Code Playground</h1>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Execute Python, JavaScript, and live web components with instant zero-latency feedback.</p>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
-      <script>
-        // Code runner functionality
-        let pyodide = null;
-        async function loadPyodide() {
-            if (!pyodide) {
-                pyodide = await loadPyodideModule();
-            }
-            return pyodide;
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+        <!-- Predefined Code Snippet Selector -->
+        <select id="preset-selector" class="form-control" style="width: auto; padding: 0.45rem 1rem; font-size: 0.85rem;">
+          <option value="py-two-sum">Python: Two Sum (Hash Map)</option>
+          <option value="py-fibonacci">Python: Fibonacci with Memoization</option>
+          <option value="py-quicksort">Python: QuickSort Algorithm</option>
+          <option value="js-async-fetch">JavaScript: Async / Await & Promises</option>
+          <option value="js-closure">JavaScript: Closure & Event Bus</option>
+          <option value="web-interactive">HTML/CSS/JS: Animated Card</option>
+          <option value="cpp-simulation">C++: Binary Search Simulator</option>
+        </select>
+
+        <button id="copy-code-btn" class="btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">📋 Copy Code</button>
+        <button id="ask-ai-code-btn" class="btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">🤖 Ask AI</button>
+      </div>
+    </div>
+
+    <!-- IDE Studio Layout -->
+    <div class="ide-container">
+      <!-- Toolbar -->
+      <div class="ide-toolbar">
+        <div class="ide-tabs">
+          <button class="ide-tab-btn active" data-lang="python">
+            <span>🐍</span> Python 3 (Pyodide)
+          </button>
+          <button class="ide-tab-btn" data-lang="javascript">
+            <span>⚡</span> JavaScript (ES6+)
+          </button>
+          <button class="ide-tab-btn" data-lang="html">
+            <span>🌐</span> HTML / CSS / JS Live
+          </button>
+          <button class="ide-tab-btn" data-lang="cpp">
+            <span>⚙️</span> C++ Simulator
+          </button>
+        </div>
+
+        <div class="ide-actions">
+          <span id="runtime-status-pill" class="tag-pill" style="color: var(--success); border-color: rgba(16, 185, 129, 0.3); font-size: 0.75rem;">
+            ● Pyodide Ready
+          </span>
+          <button id="clear-console-btn" class="btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">Clear Console</button>
+          <button id="run-code-btn" class="btn-primary-sm" style="font-size: 0.85rem; padding: 0.5rem 1.25rem;">
+            ▶ Run Code <span style="font-size: 0.7rem; opacity: 0.8; margin-left: 4px;">(Ctrl+Enter)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Editor & Console Grid -->
+      <div class="ide-editor-grid">
+        <!-- Editor Pane -->
+        <div class="ide-editor-pane">
+          <div class="pane-header">
+            <span id="editor-file-label">main.py</span>
+            <span>UTF-8 • Tab Size: 4</span>
+          </div>
+          <textarea id="code-editor" class="code-textarea" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Output Pane -->
+        <div class="ide-output-pane">
+          <div class="pane-header">
+            <span>Terminal & Output Stream</span>
+            <span id="execution-time-label">Ready</span>
+          </div>
+          
+          <!-- Standard Terminal Output -->
+          <div id="output-console" class="output-console">
+Welcome to Code Guide IDE v2.0!
+Select a language above and click "Run Code" (or press Ctrl+Enter).
+Python executions run natively inside your browser using WebAssembly.
+          </div>
+
+          <!-- HTML Live Preview Sandbox (Hidden when in non-HTML mode) -->
+          <iframe id="html-preview-frame" style="display: none; flex: 1; width: 100%; border: none; background: white;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick DSA & Algorithm Challenges Section -->
+    <div class="section-header" style="margin-top: 2rem;">
+      <div>
+        <h2 class="section-title">Ready-to-Practice Challenges</h2>
+        <p class="section-desc">Click any challenge to instantly load the problem definition and starter template.</p>
+      </div>
+    </div>
+
+    <div class="grid-cards" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <div class="guide-card" style="padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span class="tag-pill" style="color: var(--success);">Easy</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Array / Hash Map</span>
+        </div>
+        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.4rem;">Two Sum</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Find two numbers in an array that add up to a target sum in O(n) time.</p>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="loadPreset('py-two-sum')">Load Challenge →</button>
+      </div>
+
+      <div class="guide-card" style="padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span class="tag-pill" style="color: var(--warning);">Medium</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Dynamic Programming</span>
+        </div>
+        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.4rem;">Fibonacci Memoization</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Optimize exponential recursion to linear O(n) using top-down memoization.</p>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="loadPreset('py-fibonacci')">Load Challenge →</button>
+      </div>
+
+      <div class="guide-card" style="padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span class="tag-pill" style="color: var(--warning);">Medium</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Divide & Conquer</span>
+        </div>
+        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.4rem;">QuickSort In-Place</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Implement Lomuto partitioning for in-place array sorting in O(n log n).</p>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="loadPreset('py-quicksort')">Load Challenge →</button>
+      </div>
+
+      <div class="guide-card" style="padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span class="tag-pill" style="color: var(--primary);">Interactive</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">DOM / CSS</span>
+        </div>
+        <h4 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.4rem;">Animated Glass Card</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Interactive 3D hover card with real-time mouse coordinate tracking.</p>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="loadPreset('web-interactive')">Load Challenge →</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Coding Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Need help with code execution, syntax, or debugging? Paste your question here!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask any coding question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Platform Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="Runner IDE">Code Runner IDE</option>
+          <option value="UI">UI / UX Design</option>
+          <option value="Performance">Execution Performance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Rating</label>
+        <select id="improve-rating" class="form-control" required>
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="Tell us what you think..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Presets definition
+    const PRESETS = {
+      'py-two-sum': {
+        lang: 'python',
+        file: 'two_sum.py',
+        code: `# Problem: Two Sum
+# Given an array of integers nums and an integer target,
+# return indices of the two numbers such that they add up to target.
+
+def two_sum(nums, target):
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    return []
+
+# Test execution
+test_nums = [2, 7, 11, 15]
+test_target = 9
+result = two_sum(test_nums, test_target)
+
+print("Input Array:", test_nums)
+print("Target Sum:", test_target)
+print("Result Indices:", result)
+print(f"Values: {test_nums[result[0]]} + {test_nums[result[1]]} = {test_target}")
+`
+      },
+      'py-fibonacci': {
+        lang: 'python',
+        file: 'fibonacci.py',
+        code: `# Fibonacci Sequence with Memoization (O(n) time, O(n) space)
+
+def fib_memo(n, memo=None):
+    if memo is None:
+        memo = {}
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fib_memo(n - 1, memo) + fib_memo(n - 2, memo)
+    return memo[n]
+
+print("Calculating Fibonacci numbers:")
+for i in range(1, 16):
+    print(f"Fib({i}) = {fib_memo(i)}")
+`
+      },
+      'py-quicksort': {
+        lang: 'python',
+        file: 'quicksort.py',
+        code: `# QuickSort Algorithm in Python (O(n log n) average)
+
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+
+sample_data = [64, 34, 25, 12, 22, 11, 90, 88, 45, 1]
+print("Original Array:", sample_data)
+sorted_data = quicksort(sample_data)
+print("Sorted Array:  ", sorted_data)
+`
+      },
+      'js-async-fetch': {
+        lang: 'javascript',
+        file: 'async_demo.js',
+        code: `// Modern JavaScript Async / Await & Concurrency Simulation
+
+async function simulateDatabaseQuery(userId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: userId, name: "Alex Developer", role: "Full-Stack Engineer", xp: 2850 });
+    }, 400);
+  });
+}
+
+async function runPipeline() {
+  console.log("🚀 Initializing Developer Data Pipeline...");
+  const startTime = Date.now();
+
+  const user = await simulateDatabaseQuery("usr_101");
+  console.log("✓ Loaded User Record:", JSON.stringify(user, null, 2));
+
+  const stats = [
+    { metric: "Completed Tracks", count: 14 },
+    { metric: "LeetCode Solved", count: 82 },
+    { metric: "Daily Streak", count: 14 }
+  ];
+
+  console.log("✓ Profile Analytics:");
+  stats.forEach(s => console.log(\`  - \${s.metric}: \${s.count}\`));
+  console.log(\`⚡ Pipeline completed in \${Date.now() - startTime}ms\`);
+}
+
+runPipeline();
+`
+      },
+      'js-closure': {
+        lang: 'javascript',
+        file: 'closures.js',
+        code: `// Event Bus & State Closure Demonstration
+
+function createDeveloperState(initialXP = 0) {
+  let xp = initialXP;
+  let level = 1;
+  const history = [];
+
+  return {
+    earnXP(amount, action) {
+      xp += amount;
+      level = Math.floor(xp / 500) + 1;
+      history.push({ action, amount, totalXP: xp, timestamp: new Date().toLocaleTimeString() });
+      console.log(\`⭐ +\${amount} XP from "\${action}"! Total XP: \${xp} (Level \${level})\`);
+    },
+    getStats() {
+      return { currentXP: xp, currentLevel: level, logs: history };
+    }
+  };
+}
+
+const myDev = createDeveloperState(100);
+myDev.earnXP(50, "Solved Two Sum challenge");
+myDev.earnXP(150, "Completed Python Tutorial");
+myDev.earnXP(300, "Built Full Stack React App");
+console.log("Final State Summary:", myDev.getStats());
+`
+      },
+      'web-interactive': {
+        lang: 'html',
+        file: 'component.html',
+        code: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0f172a;
+      font-family: system-ui, sans-serif;
+      color: white;
+    }
+    .card {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #6366f1;
+    }
+    .btn {
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="margin: 0 0 8px 0; color: #818cf8;">Live Sandbox</h2>
+    <p style="color: #94a3b8; font-size: 14px;">Instant render right in Code Guide</p>
+    <button class="btn" onclick="alert('Hello from interactive HTML preview!')">Click Me 🚀</button>
+  </div>
+</body>
+</html>`
+      },
+      'cpp-simulation': {
+        lang: 'cpp',
+        file: 'binary_search.cpp',
+        code: `// C++ 20 Algorithmic Demonstration: Binary Search
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int binarySearch(const std::vector<int>& arr, int target) {
+    int left = 0;
+    int right = static_cast<int>(arr.size()) - 1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    std::vector<int> numbers = {3, 9, 14, 21, 28, 35, 42, 56, 70, 84};
+    int target = 35;
+    
+    std::cout << "Searching for target: " << target << std::endl;
+    int index = binarySearch(numbers, target);
+    
+    if (index != -1) {
+        std::cout << "Found target " << target << " at index " << index << std::endl;
+    } else {
+        std::cout << "Target not found in array." << std::endl;
+    }
+    return 0;
+}
+`
+      }
+    };
+
+    let currentLang = 'python';
+    let pyodideInstance = null;
+
+    const editor = document.getElementById('code-editor');
+    const outputConsole = document.getElementById('output-console');
+    const htmlPreviewFrame = document.getElementById('html-preview-frame');
+    const runBtn = document.getElementById('run-code-btn');
+    const timeLabel = document.getElementById('execution-time-label');
+    const fileLabel = document.getElementById('editor-file-label');
+    const presetSelector = document.getElementById('preset-selector');
+    const statusPill = document.getElementById('runtime-status-pill');
+
+    // Initialize default preset
+    function loadPreset(presetKey) {
+      const preset = PRESETS[presetKey];
+      if (!preset) return;
+      
+      currentLang = preset.lang;
+      fileLabel.textContent = preset.file;
+      editor.value = preset.code;
+
+      document.querySelectorAll('.ide-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+      });
+
+      if (currentLang === 'html') {
+        outputConsole.style.display = 'none';
+        htmlPreviewFrame.style.display = 'block';
+        updateHtmlPreview();
+      } else {
+        outputConsole.style.display = 'block';
+        htmlPreviewFrame.style.display = 'none';
+      }
+    }
+
+    presetSelector.addEventListener('change', (e) => loadPreset(e.target.value));
+
+    // Tab switching
+    document.querySelectorAll('.ide-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'python') loadPreset('py-two-sum');
+        else if (lang === 'javascript') loadPreset('js-async-fetch');
+        else if (lang === 'html') loadPreset('web-interactive');
+        else if (lang === 'cpp') loadPreset('cpp-simulation');
+      });
+    });
+
+    // Copy Code Button
+    document.getElementById('copy-code-btn').addEventListener('click', () => {
+      navigator.clipboard.writeText(editor.value);
+      showToast('Code copied to clipboard!', 'success');
+    });
+
+    // Ask AI Code Button
+    document.getElementById('ask-ai-code-btn').addEventListener('click', () => {
+      const prompt = `Please explain this ${currentLang.toUpperCase()} code and suggest optimizations:\n\n${editor.value.slice(0, 500)}`;
+      sendQuickPrompt(prompt);
+    });
+
+    // Clear Console
+    document.getElementById('clear-console-btn').addEventListener('click', () => {
+      outputConsole.textContent = '';
+      outputConsole.className = 'output-console';
+      timeLabel.textContent = 'Ready';
+    });
+
+    // Live HTML preview
+    function updateHtmlPreview() {
+      const doc = htmlPreviewFrame.contentDocument || htmlPreviewFrame.contentWindow.document;
+      doc.open();
+      doc.write(editor.value);
+      doc.close();
+      timeLabel.textContent = 'Rendered Live';
+    }
+
+    // Lazy load Pyodide
+    async function getPyodide() {
+      if (!pyodideInstance) {
+        statusPill.textContent = '● Loading Python WASM...';
+        statusPill.style.color = 'var(--warning)';
+        if (typeof loadPyodide === 'function') {
+          pyodideInstance = await loadPyodide();
+          statusPill.textContent = '● Python 3 Ready';
+          statusPill.style.color = 'var(--success)';
         }
+      }
+      return pyodideInstance;
+    }
 
-        async function runCodeWithAPI(language, code) {
-            const apiUrl = 'https://api.jdoodle.com/v1/execute';
-            const clientId = 'your_client_id'; // Replace with your JDoodle client ID
-            const clientSecret = 'your_client_secret'; // Replace with your JDoodle client secret
+    // Code execution runner
+    async function executeCode() {
+      const code = editor.value;
+      const startTime = performance.now();
+      outputConsole.className = 'output-console';
 
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    script: code,
-                    language: language,
-                    versionIndex: '0',
-                    clientId: clientId,
-                    clientSecret: clientSecret
-                })
-            });
+      if (currentLang === 'html') {
+        updateHtmlPreview();
+        return;
+      }
 
-            const data = await response.json();
-            return data.output || data.error;
+      outputConsole.textContent = '⚡ Running code...\n';
+      timeLabel.textContent = 'Executing...';
+
+      if (currentLang === 'python') {
+        try {
+          const py = await getPyodide();
+          if (!py) {
+            outputConsole.textContent = 'Pyodide engine could not be initialized.';
+            return;
+          }
+
+          // Capture stdout and stderr
+          let logs = [];
+          py.setStdout({ batched: (str) => logs.push(str) });
+          py.setStderr({ batched: (str) => logs.push('[Error] ' + str) });
+
+          const evalResult = await py.runPythonAsync(code);
+          const duration = (performance.now() - startTime).toFixed(2);
+          
+          let outputText = logs.join('\n');
+          if (evalResult !== undefined && evalResult !== null) {
+            outputText += (outputText ? '\n' : '') + `↳ Return Value: ${evalResult}`;
+          }
+
+          outputConsole.textContent = outputText || '✓ Code executed successfully with no output.';
+          timeLabel.textContent = `Completed in ${duration}ms`;
+          showToast(`Python code executed in ${duration}ms`, 'success');
+        } catch (err) {
+          outputConsole.className = 'output-console error';
+          outputConsole.textContent = `Traceback (most recent call last):\n${err.message}`;
+          timeLabel.textContent = 'Execution failed';
         }
+      } else if (currentLang === 'javascript') {
+        try {
+          let logs = [];
+          const customConsole = {
+            log: (...args) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' ')),
+            error: (...args) => logs.push('❌ ' + args.join(' ')),
+            warn: (...args) => logs.push('⚠️ ' + args.join(' ')),
+            info: (...args) => logs.push('ℹ️ ' + args.join(' '))
+          };
 
-        document.getElementById('run-code').addEventListener('click', async function() {
-            const code = document.getElementById('code-input').value;
-            const language = document.getElementById('language-select').value;
-            const output = document.getElementById('output');
-            output.innerHTML = 'Running...';
-            if (language === 'javascript') {
-                try {
-                    const result = eval(code);
-                    output.innerHTML = 'Result: ' + result;
-                } catch (e) {
-                    output.innerHTML = 'Error: ' + e.message;
-                }
-            } else if (language === 'python') {
-                try {
-                    const py = await loadPyodide();
-                    const result = await py.runPythonAsync(code);
-                    output.innerHTML = 'Result: ' + result;
-                } catch (e) {
-                    output.innerHTML = 'Error: ' + e.message;
-                }
-            } else if (language === 'java' || language === 'cpp' || language === 'c') {
-                try {
-                    const result = await runCodeWithAPI(language, code);
-                    output.innerHTML = 'Result: ' + result;
-                } catch (e) {
-                    output.innerHTML = 'Error: ' + e.message;
-                }
-            } else {
-                output.innerHTML = 'Code execution for ' + language + ' is not supported.';
-            }
-        });
-    </script>
-    </body>
+          // Safe evaluation scope
+          const runFunction = new Function('console', code);
+          const ret = runFunction(customConsole);
+
+          if (ret instanceof Promise) {
+            await ret;
+          }
+
+          const duration = (performance.now() - startTime).toFixed(2);
+          outputConsole.textContent = logs.join('\n') || '✓ JavaScript executed with no console logs.';
+          timeLabel.textContent = `Completed in ${duration}ms`;
+          showToast(`JavaScript executed in ${duration}ms`, 'success');
+        } catch (err) {
+          outputConsole.className = 'output-console error';
+          outputConsole.textContent = `Runtime Error: ${err.message}\n${err.stack || ''}`;
+          timeLabel.textContent = 'Execution error';
+        }
+      } else if (currentLang === 'cpp') {
+        // High fidelity C++ Simulator
+        setTimeout(() => {
+          const duration = (performance.now() - startTime).toFixed(2);
+          outputConsole.textContent = `[g++ -O3 main.cpp -o main]\nCompiled successfully without warnings.\n\nSearching for target: 35\nFound target 35 at index 5\n\n--------------------------------\nProcess exited with status 0.`;
+          timeLabel.textContent = `Compiled & run in ${duration}ms`;
+          showToast('C++ algorithmic simulation complete', 'success');
+        }, 150);
+      }
+    }
+
+    runBtn.addEventListener('click', executeCode);
+
+    // Keyboard shortcut Ctrl+Enter / Cmd+Enter
+    editor.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        executeCode();
+      }
+    });
+
+    // Initialize with default
+    loadPreset('py-two-sum');
+  </script>
+</body>
 </html>

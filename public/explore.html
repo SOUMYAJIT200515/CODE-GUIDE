@@ -1,379 +1,419 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Coding Guides - Coding Guide</title>
-    <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        nav {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
-            text-align: center;
-        }
-
-        nav a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #764ba2;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .category {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .category p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .category li {
-            margin-bottom: 0.5rem;
-        }
-
-        .category a {
-            color: #764ba2;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .category a:hover {
-            color: #667eea;
-        }
-
-        .featured {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .featured h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .featured-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .featured-item:hover {
-            background: #e9ecef;
-        }
-
-        .featured-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #667eea;
-        }
-
-        .featured-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .cta {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .cta a {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .cta a:hover {
-            background: #ff5252;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .categories {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Explore Tutorials & Guides</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-        <h1>Coding Guide</h1>
-        <p>Explore and Master Programming</p>
-    </header>
 
-    <nav>
-        <a href="landing.html">Home</a>
-        <a href="login.html">Full Guide</a>
-        <a href="login.html">Login</a>
-    </nav>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">CATALOG</span></span>
+      </div>
+    </a>
 
-    <div class="container">
-        <section class="hero">
-            <h2>Explore Our Comprehensive Coding Guides</h2>
-            <p>Dive into detailed tutorials, best practices, and resources for various programming languages and technologies.</p>
-        </section>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link active"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
 
-        <section class="categories">
-            <div class="category">
-                <h3>Frontend Development</h3>
-                <p>Master the art of creating beautiful and interactive user interfaces.</p>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Backend Development</h3>
-                <p>Build robust server-side applications and APIs.</p>
-                <ul>
-                    <li>Python</li>
-                    <li>Node.js</li>
-                    <li>PHP</li>
-                    <li>SQL</li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Programming Languages</h3>
-                <p>Learn fundamental and advanced programming concepts.</p>
-                <ul>
-                    <li>Java</li>
-                    <li>C++</li>
-                    <li>TypeScript</li>
-                    <li>C#</li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Coding Practice</h3>
-                <p>Sharpen your skills with coding challenges and exercises.</p>
-                <ul>
-                    <li>LeetCode</li>
-                    <li>HackerRank</li>
-                    <li>CodeChef</li>
-                    <li>GeeksforGeeks Practice</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="featured">
-            <h3>Featured Resources</h3>
-            <div class="featured-grid">
-                <div class="featured-item">
-                    <h4>Web Development Roadmap</h4>
-                    <p>A comprehensive guide to becoming a full-stack web developer.</p>
-                </div>
-                <div class="featured-item">
-                    <h4>Data Structures & Algorithms</h4>
-                    <p>Essential concepts for efficient problem-solving and coding interviews.</p>
-                </div>
-                <div class="featured-item">
-                    <h4>Version Control with Git</h4>
-                    <p>Learn to manage your code and collaborate effectively.</p>
-                </div>
-                <div class="featured-item">
-                    <h4>API Development</h4>
-                    <p>Build and consume RESTful APIs for modern applications.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <a href="login.html">Full Course</a>
-        </section>
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" id="catalog-search-input" placeholder="Filter languages, libraries, algorithms..." class="searchbar-input" />
+      <span class="search-kbd-tag">Filter</span>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-    </footer>
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+  <main class="container">
+    <div class="section-header" style="margin-top: 1rem;">
+      <div>
+        <h1 class="section-title">Developer Guides & Knowledge Base</h1>
+        <p class="section-desc">Practical syntax reference, design patterns, and hands-on examples across 20+ technologies.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div id="category-filters" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button class="tag-pill active" style="cursor: pointer; background: var(--primary); color: white;" data-filter="all">All (12)</button>
+        <button class="tag-pill" style="cursor: pointer;" data-filter="frontend">Frontend</button>
+        <button class="tag-pill" style="cursor: pointer;" data-filter="backend">Backend</button>
+        <button class="tag-pill" style="cursor: pointer;" data-filter="dsa">DSA</button>
+        <button class="tag-pill" style="cursor: pointer;" data-filter="devops">DevOps</button>
+      </div>
+    </div>
+
+    <!-- Guides Catalog Grid -->
+    <div class="grid-cards" id="guides-grid">
+
+      <!-- Python -->
+      <div class="guide-card" data-cat="backend" data-title="python">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">🐍</div>
+            <span class="tag-pill" style="color: var(--success);">Beginner to Pro</span>
+          </div>
+          <h3>Python 3</h3>
+          <p>Clean syntax, list comprehensions, decorators, generators, data manipulation, and web backend frameworks.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">OOP</span>
+            <span class="tag-pill">Asyncio</span>
+            <span class="tag-pill">FastAPI</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('python')">📖 Quick Guide</button>
+          <a href="code-runner.html?preset=py-two-sum" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Try in IDE →</a>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="guide-card" data-cat="frontend" data-title="javascript js">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">⚡</div>
+            <span class="tag-pill" style="color: var(--primary);">Essential</span>
+          </div>
+          <h3>Modern JavaScript (ES6+)</h3>
+          <p>Promises, async/await, closures, prototypes, event loop microtasks, modules, and modern browser APIs.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">ES6+</span>
+            <span class="tag-pill">Async</span>
+            <span class="tag-pill">DOM</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('javascript')">📖 Quick Guide</button>
+          <a href="code-runner.html?preset=js-async-fetch" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Try in IDE →</a>
+        </div>
+      </div>
+
+      <!-- React -->
+      <div class="guide-card" data-cat="frontend" data-title="react hooks nextjs">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">⚛️</div>
+            <span class="tag-pill" style="color: var(--secondary);">Intermediate</span>
+          </div>
+          <h3>React 18 & Ecosystem</h3>
+          <p>Component lifecycle, custom hooks, context, memoization (useMemo/useCallback), and state management.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">Hooks</span>
+            <span class="tag-pill">Zustand</span>
+            <span class="tag-pill">SSR</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('react')">📖 Quick Guide</button>
+          <a href="code-runner.html?preset=web-interactive" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Try in IDE →</a>
+        </div>
+      </div>
+
+      <!-- Node.js -->
+      <div class="guide-card" data-cat="backend" data-title="nodejs express rest">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">🟢</div>
+            <span class="tag-pill" style="color: var(--success);">Backend</span>
+          </div>
+          <h3>Node.js & Express REST APIs</h3>
+          <p>Non-blocking I/O, middleware patterns, routing, authentication with JWT, and MongoDB/PostgreSQL integration.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">Express</span>
+            <span class="tag-pill">REST</span>
+            <span class="tag-pill">JWT</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('nodejs')">📖 Quick Guide</button>
+          <a href="api-development.html" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">API Studio →</a>
+        </div>
+      </div>
+
+      <!-- DSA -->
+      <div class="guide-card" data-cat="dsa" data-title="dsa algorithms binary search trees">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">🧠</div>
+            <span class="tag-pill" style="color: var(--accent);">Computer Science</span>
+          </div>
+          <h3>Data Structures & Algorithms</h3>
+          <p>Arrays, Linked Lists, Stacks, Queues, Binary Search Trees, Graphs, Dijkstra, and Dynamic Programming.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">Big-O</span>
+            <span class="tag-pill">Trees</span>
+            <span class="tag-pill">DP</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('dsa')">📖 Quick Guide</button>
+          <a href="data-structures-algorithms.html" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Masterclass →</a>
+        </div>
+      </div>
+
+      <!-- Git -->
+      <div class="guide-card" data-cat="devops" data-title="git version control rebase merge">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">🌿</div>
+            <span class="tag-pill" style="color: var(--warning);">DevOps</span>
+          </div>
+          <h3>Git & Version Control</h3>
+          <p>Branching workflows, interactive rebase, squashing commits, resolving conflicts, and GitHub collaboration.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">Rebase</span>
+            <span class="tag-pill">Branches</span>
+            <span class="tag-pill">CI/CD</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('git')">📖 Quick Guide</button>
+          <a href="version-control-git.html" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Git Terminal →</a>
+        </div>
+      </div>
+
+      <!-- C++ -->
+      <div class="guide-card" data-cat="backend" data-title="cpp c++ memory pointers stl">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">⚙️</div>
+            <span class="tag-pill" style="color: var(--secondary);">High Performance</span>
+          </div>
+          <h3>C++ & Systems Programming</h3>
+          <p>Pointers, memory management, STL containers (vector, map, set), templates, and competitive programming.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">STL</span>
+            <span class="tag-pill">Pointers</span>
+            <span class="tag-pill">Systems</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('cpp')">📖 Quick Guide</button>
+          <a href="code-runner.html?preset=cpp-simulation" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Try in IDE →</a>
+        </div>
+      </div>
+
+      <!-- SQL & Databases -->
+      <div class="guide-card" data-cat="backend" data-title="sql postgresql database queries">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-icon" style="margin-bottom: 0;">🗄️</div>
+            <span class="tag-pill" style="color: var(--primary);">Database</span>
+          </div>
+          <h3>PostgreSQL & SQL</h3>
+          <p>Relational modeling, indexing, ACID transactions, complex JOINs, window functions, and query optimization.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tag-pill">JOINs</span>
+            <span class="tag-pill">Indexes</span>
+            <span class="tag-pill">ACID</span>
+          </div>
+        </div>
+        <div class="card-footer-action">
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="openGuideModal('sql')">📖 Quick Guide</button>
+          <a href="api-development.html" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">API Studio →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Reader Modal -->
+  <div id="guide-modal" class="global-search-modal" style="display: none; max-width: 720px; max-height: 85vh; overflow-y: auto;">
+    <div class="modal-header">
+      <span id="modal-guide-title" style="font-size: 1.25rem;">Guide Title</span>
+      <button class="modal-close-btn" id="close-guide-modal">×</button>
+    </div>
+    <div id="modal-guide-body" style="padding: 1.25rem 0; color: var(--text-secondary); line-height: 1.7;">
+      <!-- Content populated dynamically -->
+    </div>
+    <div style="display: flex; justify-content: flex-end; gap: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+      <button class="btn-secondary" id="modal-secondary-btn">Close</button>
+      <a href="code-runner.html" id="modal-ide-btn" class="btn-primary-sm">Open in Code Playground ⚡</a>
+    </div>
+  </div>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Coding Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me anything about any language in the catalog!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask any question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Platform Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="Content">Tutorial Content</option>
+          <option value="UI">UI / UX</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="Suggest a new topic or guide..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Category Filtering
+    const filterButtons = document.querySelectorAll('#category-filters button');
+    const guideCards = document.querySelectorAll('.guide-card');
+    const searchInput = document.getElementById('catalog-search-input');
+
+    function applyFilters() {
+      const activeFilter = document.querySelector('#category-filters button.active')?.getAttribute('data-filter') || 'all';
+      const query = (searchInput.value || '').toLowerCase().trim();
+
+      guideCards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const matchesCategory = activeFilter === 'all' || cat === activeFilter;
+        const matchesQuery = !query || title.includes(query) || card.textContent.toLowerCase().includes(query);
+
+        card.style.display = (matchesCategory && matchesQuery) ? 'flex' : 'none';
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active');
+          b.style.background = 'var(--bg-tertiary)';
+          b.style.color = 'var(--text-secondary)';
         });
+        btn.classList.add('active');
+        btn.style.background = 'var(--primary)';
+        btn.style.color = 'white';
+        applyFilters();
+      });
+    });
 
-        // Add click tracking
-        document.querySelectorAll('.category a').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Link clicked:', this.textContent);
-                // You can add analytics here
-            });
-        });
+    searchInput.addEventListener('input', applyFilters);
 
-        // Animate categories on scroll
-        const categories = document.querySelectorAll('.category');
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    // Guide Modal Content
+    const GUIDE_DETAILS = {
+      python: {
+        title: '🐍 Python 3 Master Guide',
+        content: `
+          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Core Strengths & Idiomatic Code</h3>
+          <p>Python balances simplicity with immense power. Key features include dynamic typing, rich standard libraries, and expressive list comprehensions.</p>
+          <div style="background: #090d16; padding: 1rem; border-radius: 8px; font-family: monospace; color: #38bdf8; margin: 1rem 0;">
+            # Generator & List Comprehension<br>
+            squares = [x**2 for x in range(10) if x % 2 == 0]<br>
+            print(squares) # Output: [0, 4, 16, 36, 64]
+          </div>
+          <h4 style="color: var(--text-primary);">Best Practices:</h4>
+          <ul>
+            <li>Use virtual environments (venv or poetry) for isolation.</li>
+            <li>Adhere to PEP 8 style standards with Flake8/Black.</li>
+            <li>Prefer dictionary \`.get()\` over direct bracket indexing.</li>
+          </ul>
+        `
+      },
+      javascript: {
+        title: '⚡ Modern JavaScript (ES6+) Guide',
+        content: `
+          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Asynchronous Programming & Event Loop</h3>
+          <p>JavaScript powers the modern web with non-blocking concurrency via microtasks and macrotasks.</p>
+          <div style="background: #090d16; padding: 1rem; border-radius: 8px; font-family: monospace; color: #38bdf8; margin: 1rem 0;">
+            // Promise concurrency with Promise.allSettled<br>
+            const results = await Promise.allSettled([<br>
+              fetch('/api/user/1'),<br>
+              fetch('/api/posts')<br>
+            ]);
+          </div>
+        `
+      },
+      react: {
+        title: '⚛️ React 18 Architecture & Hooks',
+        content: `
+          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Functional Composition & State</h3>
+          <p>React builds dynamic interfaces using virtual DOM diffing and declarative component pipelines.</p>
+        `
+      },
+      dsa: {
+        title: '🧠 Data Structures & Algorithms Roadmap',
+        content: `
+          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Algorithmic Complexity & Big-O</h3>
+          <p>Always optimize time and space complexity. Check out our dedicated DSA Masterclass page for full interactive walkthroughs.</p>
+        `
+      },
+      git: {
+        title: '🌿 Git Workflows & Rebase Strategies',
+        content: `
+          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Clean Commit History</h3>
+          <p>Use interactive rebase (\`git rebase -i HEAD~N\`) to squash and reword commits before opening pull requests.</p>
+        `
+      }
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    function openGuideModal(key) {
+      const data = GUIDE_DETAILS[key] || {
+        title: 'Developer Guide',
+        content: '<p>Comprehensive tutorial available. Try the code in our live interactive runner!</p>'
+      };
 
-        categories.forEach(category => {
-            category.style.opacity = '0';
-            category.style.transform = 'translateY(30px)';
-            category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(category);
-        });
+      document.getElementById('modal-guide-title').textContent = data.title;
+      document.getElementById('modal-guide-body').innerHTML = data.content;
+      document.getElementById('guide-modal').style.display = 'flex';
+    }
 
-        // Add hover effects for featured items
-        const featuredItems = document.querySelectorAll('.featured-item');
-        featuredItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'scale(1.05)';
-                item.style.transition = 'transform 0.3s ease';
-            });
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'scale(1)';
-            });
-        });
+    document.getElementById('close-guide-modal').addEventListener('click', () => {
+      document.getElementById('guide-modal').style.display = 'none';
+    });
+    document.getElementById('modal-secondary-btn').addEventListener('click', () => {
+      document.getElementById('guide-modal').style.display = 'none';
+    });
 
-        // Dynamic title update
-        document.addEventListener('DOMContentLoaded', () => {
-            const titles = ['Explore Coding Guides', 'Master Programming', 'Learn with Us'];
-            let index = 0;
-            setInterval(() => {
-                document.querySelector('.hero h2').textContent = titles[index];
-                index = (index + 1) % titles.length;
-            }, 3000);
-        });
-    </script>
+    // Check URL parameters for initial topic query
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialTopic = urlParams.get('topic') || urlParams.get('q');
+    if (initialTopic) {
+      searchInput.value = initialTopic;
+      applyFilters();
+    }
+  </script>
 </body>
 </html>

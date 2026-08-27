@@ -1,92 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Web Development Roadmap</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-      <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search for your coding Language..."
-              class="searchbar-input"
-            />
-            <button class="search-btn">🔍</button>
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Developer Career Roadmaps</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="hero">
-            <h2>Web Development Roadmap</h2>
-            <p>A comprehensive guide to becoming a full-stack web developer.</p>
-        </section>
-        <section class="roadmap">
-            <h3>Steps to Follow</h3>
-            <ul>
-                <li>Learn HTML and CSS basics</li>
-                <li>Master JavaScript</li>
-                <li>Understand frontend frameworks like React</li>
-                <li>Learn backend technologies like Node.js</li>
-                <li>Build full-stack projects</li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">ROADMAPS</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link active"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search roadmap topics..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">🗺️ Structured Career Blueprints</div>
+      <h1>Developer Career Roadmaps</h1>
+      <p>
+        Step-by-step milestones to navigate your journey from beginner to Senior Staff Software Engineer. Check off milestones to save progress.
+      </p>
+
+      <!-- Role Selector Tabs -->
+      <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <button class="btn-primary role-tab active" data-role="frontend">Frontend Pro</button>
+        <button class="btn-secondary role-tab" data-role="backend">Backend Specialist</button>
+        <button class="btn-secondary role-tab" data-role="devops">DevOps & Cloud</button>
+        <button class="btn-secondary role-tab" data-role="ai">AI / ML Engineer</button>
+      </div>
+    </section>
+
+    <!-- Role Content Container -->
+    <div id="roadmap-content-area">
+      <!-- Frontend Roadmap (Default) -->
+      <div class="roadmap-role-view" id="view-frontend">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Frontend Engineer Blueprint</h2>
+            <p class="section-desc">Master modern browser interfaces, accessible architectures, and state management.</p>
+          </div>
+          <span class="tag-pill" style="color: var(--success); font-size: 0.85rem;">Estimated Time: 4-6 Months</span>
+        </div>
+
+        <div class="roadmap-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 1 • Web Foundations</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">HTML5 & Semantic Structure</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Semantic markup, WCAG accessibility, SEO tags, forms, input validations, and canvas rendering.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-html">Mark Complete</button>
+                <a href="explore.html?topic=html" class="card-link-btn">Read HTML Guide →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 2 • Styling Architecture</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Modern CSS, Flexbox & Grid</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Responsive design, CSS custom properties, Tailwind CSS, animations, and container queries.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-css">Mark Complete</button>
+                <a href="explore.html?topic=css" class="card-link-btn">Read CSS Guide →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 3 • Core Programming</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Modern JavaScript (ES6+) & TypeScript</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Closures, Promises, Async/Await, Web APIs, Fetch, TypeScript interfaces, generics, and type safety.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-js">Mark Complete</button>
+                <a href="code-runner.html?preset=js-async-fetch" class="card-link-btn">Try in Playground →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 4 • Component Frameworks</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">React 18 & Next.js</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                JSX, Component composition, React hooks, Server Components (RSC), SSR, and Zustand/TanStack Query.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-react">Mark Complete</button>
+                <a href="explore.html?topic=react" class="card-link-btn">Read React Guide →</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script>
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Search for keywords in roadmap
-            const roadmapItems = document.querySelectorAll('.roadmap ul li');
-            let found = false;
-            roadmapItems.forEach(item => {
-                if (item.textContent.toLowerCase().includes(query)) {
-                    found = true;
-                    item.style.backgroundColor = 'yellow';
-                    item.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            if (!found) {
-                alert('No matching content found for "' + query + '"');
-            }
-        }
+      <!-- Backend Roadmap -->
+      <div class="roadmap-role-view" id="view-backend" style="display: none;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Backend Engineer Blueprint</h2>
+            <p class="section-desc">Architect robust server backends, database models, and scalable API services.</p>
+          </div>
+          <span class="tag-pill" style="color: var(--primary); font-size: 0.85rem;">Estimated Time: 5-7 Months</span>
+        </div>
 
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
+        <div class="roadmap-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 1 • Language Proficiency</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Python 3 or Node.js Mastery</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                OOP, concurrency, asynchronous I/O, package managers, unit testing with PyTest/Jest.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-backend-lang">Mark Complete</button>
+                <a href="explore.html?topic=python" class="card-link-btn">Read Python Guide →</a>
+              </div>
+            </div>
+          </div>
 
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 2 • Relational & NoSQL Storage</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">PostgreSQL, SQL & Redis</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Database normalization, ACID transactions, B-Tree indexes, query execution plans, Redis in-memory caching.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-db">Mark Complete</button>
+                <a href="api-development.html" class="card-link-btn">API Studio →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 3 • API Protocols & Security</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">RESTful, GraphQL & JWT Auth</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                HTTP status codes, rate limiting, OAuth 2.0, JWT token verification, CORS, and role-based access control.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-api-sec">Mark Complete</button>
+                <a href="api-development.html" class="card-link-btn">Read API Guide →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DevOps Roadmap -->
+      <div class="roadmap-role-view" id="view-devops" style="display: none;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">DevOps & Cloud Infrastructure Blueprint</h2>
+            <p class="section-desc">Automate deployment pipelines, orchestrate container clusters, and manage cloud assets.</p>
+          </div>
+          <span class="tag-pill" style="color: var(--warning); font-size: 0.85rem;">Estimated Time: 6 Months</span>
+        </div>
+
+        <div class="roadmap-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 1 • Version Control & Workflows</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Advanced Git & GitHub Actions</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Branch protections, interactive rebase, pull request automation, semantic versioning, and CI pipelines.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-git-ci">Mark Complete</button>
+                <a href="version-control-git.html" class="card-link-btn">Git Terminal →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 2 • Containerization</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Docker & Container Isolation</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Dockerfile multi-stage builds, container networking, volume mounts, and Docker Compose.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-docker">Mark Complete</button>
+                <a href="explore.html" class="card-link-btn">Read Guides →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Roadmap -->
+      <div class="roadmap-role-view" id="view-ai" style="display: none;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">AI & Machine Learning Engineer Blueprint</h2>
+            <p class="section-desc">From statistical modeling to fine-tuning LLMs, embeddings, and intelligent agents.</p>
+          </div>
+          <span class="tag-pill" style="color: var(--secondary); font-size: 0.85rem;">Estimated Time: 6-8 Months</span>
+        </div>
+
+        <div class="roadmap-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-step-tag">Step 1 • Mathematics & Data Wrangling</div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">Python Data Stack (NumPy, Pandas, Matplotlib)</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Matrix manipulations, tensor operations, feature engineering, and exploratory data analysis.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn-secondary" style="font-size: 0.8rem;" data-topic-id="rm-ai-math">Mark Complete</button>
+                <a href="code-runner.html?preset=py-fibonacci" class="card-link-btn">Try in Playground →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me about any career roadmap, what skills to learn next, or how to prepare for tech interviews!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask about roadmaps..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Roadmap Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="Roadmap Content">Roadmaps</option>
+          <option value="Milestones">Milestones & Checklists</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="What roadmap would you like added?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Tab switching between roadmaps
+    const roleTabs = document.querySelectorAll('.role-tab');
+    const roleViews = document.querySelectorAll('.roadmap-role-view');
+
+    roleTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetRole = tab.getAttribute('data-role');
+
+        roleTabs.forEach(t => {
+          t.classList.remove('active', 'btn-primary');
+          t.classList.add('btn-secondary');
         });
-      </script>
-    </body>
+
+        tab.classList.add('active', 'btn-primary');
+        tab.classList.remove('btn-secondary');
+
+        roleViews.forEach(v => {
+          v.style.display = (v.id === `view-${targetRole}`) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Check URL parameters for role
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialRole = urlParams.get('role');
+    if (initialRole) {
+      const matchTab = document.querySelector(`.role-tab[data-role="${initialRole}"]`);
+      if (matchTab) matchTab.click();
+    }
+  </script>
+</body>
 </html>

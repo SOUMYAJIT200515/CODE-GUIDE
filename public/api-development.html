@@ -1,92 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - API Development</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-      <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search for your coding Language..."
-              class="searchbar-input"
-            />
-            <button class="search-btn">🔍</button>
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - REST & GraphQL API Studio</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="hero">
-            <h2>API Development Roadmap</h2>
-            <p>A guide to building robust and scalable APIs for modern applications.</p>
-        </section>
-        <section class="roadmap">
-            <h3>Steps to Follow</h3>
-            <ul>
-                <li>Learn HTTP fundamentals and REST principles</li>
-                <li>Understand API design best practices</li>
-                <li>Master authentication and security</li>
-                <li>Explore frameworks like Express.js or Django REST</li>
-                <li>Test and document your APIs</li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">APIs</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search API guides..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">⚙️ Backend Architecture & Web Services</div>
+      <h1>REST & GraphQL API Studio</h1>
+      <p>
+        Design high-throughput APIs, manage database connections, enforce JWT security, and test requests live.
+      </p>
+    </section>
+
+    <!-- Interactive Live API Requester & Sandbox -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary);">⚡ Live API Request Explorer</h2>
+        <span id="api-status-tag" class="tag-pill" style="color: var(--success); border-color: rgba(16, 185, 129, 0.3);">
+          HTTP 200 OK
+        </span>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script>
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Search for keywords in roadmap
-            const roadmapItems = document.querySelectorAll('.roadmap ul li');
-            let found = false;
-            roadmapItems.forEach(item => {
-                if (item.textContent.toLowerCase().includes(query)) {
-                    found = true;
-                    item.style.backgroundColor = 'yellow';
-                    item.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            if (!found) {
-                alert('No matching content found for "' + query + '"');
-            }
-        }
+      <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
+        <select id="api-method-select" class="form-control" style="width: 110px; font-weight: 700; color: var(--primary);">
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+        </select>
+        <input type="text" id="api-url-input" value="/api/search?q=react" class="form-control" style="flex: 1; min-width: 260px;" />
+        <button id="send-api-req-btn" class="btn-primary" style="padding: 0.75rem 1.5rem;">Send Request 🚀</button>
+      </div>
 
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
+      <!-- Quick Preset Buttons -->
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+        <button class="tag-pill" style="cursor: pointer;" onclick="loadApiPreset('GET', '/api/search?q=python')">Search Python</button>
+        <button class="tag-pill" style="cursor: pointer;" onclick="loadApiPreset('GET', '/api/community/posts')">Community Posts</button>
+        <button class="tag-pill" style="cursor: pointer;" onclick="loadApiPreset('GET', '/api/profile')">User Profile</button>
+        <button class="tag-pill" style="cursor: pointer;" onclick="loadApiPreset('GET', '/api/admin/stats')">Platform Stats</button>
+      </div>
 
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-      </script>
-    </body>
+      <!-- Response Box -->
+      <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; max-height: 280px; overflow-y: auto;">
+        <pre id="api-response-output">// Click "Send Request" to test live backend endpoints</pre>
+      </div>
+    </div>
+
+    <!-- API Guides & Design Patterns -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Backend Architecture Best Practices</h2>
+        <p class="section-desc">Production-grade patterns for robust microservices and server frameworks.</p>
+      </div>
+    </div>
+
+    <div class="grid-cards">
+      <div class="guide-card">
+        <div class="card-icon">🔒</div>
+        <h3>Stateless JWT Authentication</h3>
+        <p>Implement secure access and refresh tokens with expiration, HMAC SHA-256 signing, and middleware guard decorators.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">OAuth & JWT</span>
+          <a href="explore.html" class="card-link-btn">Read Pattern →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">⚡</div>
+        <h3>Redis Caching Layer</h3>
+        <p>Offload database pressure using Cache-Aside (Lazy Loading) patterns and TTL eviction policies.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Redis / Memcached</span>
+          <a href="explore.html" class="card-link-btn">Read Pattern →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🛡️</div>
+        <h3>Rate Limiting & Throttling</h3>
+        <p>Protect APIs against denial of service and abuse using Token Bucket and Sliding Window log algorithms.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Security</span>
+          <a href="explore.html" class="card-link-btn">Read Pattern →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me about building REST APIs, GraphQL resolvers, database indexing, or Node/Python backends!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask an API question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share API Studio Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Feedback</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="Suggest new API testing tools..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const methodSelect = document.getElementById('api-method-select');
+    const urlInput = document.getElementById('api-url-input');
+    const sendBtn = document.getElementById('send-api-req-btn');
+    const output = document.getElementById('api-response-output');
+    const statusTag = document.getElementById('api-status-tag');
+
+    function loadApiPreset(method, url) {
+      methodSelect.value = method;
+      urlInput.value = url;
+      executeApiRequest();
+    }
+
+    async function executeApiRequest() {
+      const method = methodSelect.value;
+      const url = urlInput.value.trim();
+
+      output.textContent = 'Sending request to ' + url + '...';
+      statusTag.textContent = 'Executing...';
+      statusTag.style.color = 'var(--warning)';
+
+      const startTime = performance.now();
+      try {
+        const res = await fetch(url, { method });
+        const latency = (performance.now() - startTime).toFixed(0);
+        const data = await res.json();
+
+        statusTag.textContent = `HTTP ${res.status} ${res.statusText} (${latency}ms)`;
+        statusTag.style.color = res.ok ? 'var(--success)' : 'var(--danger)';
+        output.textContent = JSON.stringify(data, null, 2);
+        showToast(`Request finished in ${latency}ms`, 'success');
+      } catch (err) {
+        statusTag.textContent = 'Error';
+        statusTag.style.color = 'var(--danger)';
+        output.textContent = 'Failed to execute request: ' + err.message;
+      }
+    }
+
+    sendBtn.addEventListener('click', executeApiRequest);
+  </script>
+</body>
 </html>

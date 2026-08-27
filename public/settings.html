@@ -1,215 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Settings</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-      <style>
-          body {
-              background: #f0f4f8;
-              font-family: 'Inter', sans-serif;
-          }
-          .container {
-              background: white;
-              padding: 2rem;
-              border-radius: 1rem;
-              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-              max-width: 480px;
-              margin: 3rem auto 2rem;
-              opacity: 0;
-              transform: translateY(30px);
-              animation: fadeInUp 0.8s ease forwards;
-          }
-          @keyframes fadeInUp {
-              from {
-                  opacity: 0;
-                  transform: translateY(30px);
-              }
-              to {
-                  opacity: 1;
-                  transform: translateY(0);
-              }
-          }
-          .setting-group {
-              margin-bottom: 1.5rem;
-          }
-          .setting-group h3 {
-              font-weight: 600;
-              margin-bottom: 0.5rem;
-              color: #333;
-          }
-          label {
-              display: block;
-              margin-bottom: 0.5rem;
-              cursor: pointer;
-              font-weight: 500;
-              color: #555;
-          }
-          input[type="checkbox"] {
-              margin-right: 0.5rem;
-              accent-color: #007bff;
-              cursor: pointer;
-              transition: transform 0.2s ease;
-          }
-          input[type="checkbox"]:hover {
-              transform: scale(1.1);
-          }
-          select {
-              width: 100%;
-              padding: 0.5rem;
-              border-radius: 0.5rem;
-              border: 1px solid #ccc;
-              font-size: 1rem;
-              transition: box-shadow 0.3s ease, border-color 0.3s ease;
-          }
-          select:focus {
-              outline: none;
-              border-color: #007bff;
-              box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
-          }
-          #save-settings {
-              background: #007bff;
-              color: white;
-              padding: 0.75rem 1.5rem;
-              border: none;
-              border-radius: 0.5rem;
-              font-size: 1rem;
-              font-weight: 600;
-              cursor: pointer;
-              box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-              transition: background 0.3s ease, transform 0.3s ease;
-          }
-          #save-settings:hover {
-              background: #0056b3;
-              transform: scale(1.05);
-          }
-      </style>
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-           <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-            <div class="right">
-                <a href="home.html" class="logout-btn flex items-center gap-2">
-                  HOME
-                </a>
-                <a href="landing.html" class="logout-btn flex items-center gap-2">
-                  LOGOUT
-                </a>
-            </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Platform Settings</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      <div class="container">
-        <section class="hero">
-            <h2>Settings</h2>
-            <p>Customize your experience on Coding Guide.</p>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">SETTINGS</span></span>
+      </div>
+    </a>
 
-        <section class="settings">
-            <div class="setting-group">
-                <h3>Appearance</h3>
-                <label>
-                    <input type="checkbox" id="dark-mode"> Enable Dark Mode
-                </label>
-                <label>
-                    <input type="checkbox" id="compact-view"> Compact View
-                </label>
-            </div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
 
-            <div class="setting-group">
-                <h3>Notifications</h3>
-                <label>
-                    <input type="checkbox" id="email-notifications" checked> Email Notifications
-                </label>
-                <label>
-                    <input type="checkbox" id="push-notifications"> Push Notifications
-                </label>
-            </div>
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search preferences..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
 
-            <div class="setting-group">
-                <h3>Privacy</h3>
-                <label>
-                    <input type="checkbox" id="analytics"> Allow Analytics
-                </label>
-                <label>
-                    <input type="checkbox" id="public-profile"> Public Profile
-                </label>
-            </div>
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-            <div class="setting-group">
-                <h3>Language</h3>
-                <select id="language">
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                    <option value="fr">French</option>
-                </select>
-            </div>
+  <main class="container-narrow">
+    <div class="section-header" style="margin-top: 1rem;">
+      <div>
+        <h1 class="section-title">Developer & Platform Preferences</h1>
+        <p class="section-desc">Customize your IDE behavior, appearance themes, and learning notifications.</p>
+      </div>
+    </div>
 
-            <button class="btn" id="save-settings">Save Settings</button>
-        </section>
+    <div class="form-card" style="max-width: 100%; margin: 0 0 3rem 0; padding: 2rem;">
+      <!-- Appearance & Themes -->
+      <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">🎨 Appearance & Themes</h3>
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">Switch between Slate Dark and Crisp Light modes.</p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button id="set-theme-dark" class="btn-secondary" style="flex: 1; padding: 0.75rem;">🌙 Slate Dark</button>
+          <button id="set-theme-light" class="btn-secondary" style="flex: 1; padding: 0.75rem;">☀️ Clean Light</button>
+        </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script>
-        // Basic settings functionality
-        document.getElementById('save-settings').addEventListener('click', function() {
-            alert('Settings saved!');
-            // In a real app, this would save to server or localStorage
-        });
+      <!-- IDE Editor Preferences -->
+      <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">⚡ Code Playground & IDE</h3>
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">Configure the code execution engine.</p>
 
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Find matching link in categories on home page
-            const links = [
-                { text: 'html', url: 'https://www.geeksforgeeks.org/html/html-tutorial/' },
-                { text: 'css', url: 'https://www.geeksforgeeks.org/css/css-cheat-sheet-a-basic-guide-to-css/' },
-                { text: 'javascript', url: 'https://www.geeksforgeeks.org/javascript/javascript-tutorial/' },
-                { text: 'react', url: 'https://www.geeksforgeeks.org/reactjs/react/' },
-                { text: 'python', url: 'https://www.geeksforgeeks.org/python/python-programming-language-tutorial/' },
-                { text: 'node.js', url: 'https://www.geeksforgeeks.org/node-js/nodejs/' },
-                { text: 'php', url: 'https://www.geeksforgeeks.org/php/php-tutorial/' },
-                { text: 'sql', url: 'https://www.geeksforgeeks.org/sql/sql-tutorial/' },
-                { text: 'java', url: 'https://www.geeksforgeeks.org/java/java/' },
-                { text: 'c++', url: 'https://www.geeksforgeeks.org/cpp/c-plus-plus/' },
-                { text: 'typescript', url: 'https://www.geeksforgeeks.org/typescript/typescript-tutorial/' },
-                { text: 'c#', url: 'https://www.geeksforgeeks.org/c-sharp/csharp-tutorial/' },
-                { text: 'leetcode', url: 'https://leetcode.com/' },
-                { text: 'hackerrank', url: 'https://www.hackerrank.com/' },
-                { text: 'codechef', url: 'https://www.codechef.com/' },
-                { text: 'geeksforgeeks practice', url: 'https://www.geeksforgeeks.org/explore' }
-            ];
-            const found = links.find(link => link.text === query);
-            if (found) {
-                window.open(found.url, '_blank');
-            } else {
-                alert('No matching language found for "' + query + '"');
-            }
-        }
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-      </script>
-    </body>
+        <div class="form-group">
+          <label class="form-label">Indentation Tab Size</label>
+          <select id="tab-size-select" class="form-control">
+            <option value="4">4 Spaces (Standard Python/C++)</option>
+            <option value="2">2 Spaces (Standard JS/React/HTML)</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1rem;">
+          <div>
+            <div style="font-weight: 600; color: var(--text-primary); font-size: 0.9rem;">Preload Pyodide WASM Engine</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem;">Speeds up first-run Python executions</div>
+          </div>
+          <input type="checkbox" id="preload-wasm-check" checked style="width: 20px; height: 20px; accent-color: var(--primary); cursor: pointer;" />
+        </div>
+      </div>
+
+      <!-- Gamification & Privacy -->
+      <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">🏆 Learning & Gamification</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+          <div>
+            <div style="font-weight: 600; color: var(--text-primary); font-size: 0.9rem;">Show Level Up & XP Toasts</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem;">Displays progress points when completing topics</div>
+          </div>
+          <input type="checkbox" id="xp-toasts-check" checked style="width: 20px; height: 20px; accent-color: var(--primary); cursor: pointer;" />
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div>
+        <h3 style="color: var(--danger); font-size: 1.2rem; margin-bottom: 0.5rem;">⚠️ Data Management</h3>
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">Manage your locally stored progress data.</p>
+        
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button id="export-data-btn" class="btn-secondary" style="font-size: 0.85rem;">📥 Export Progress JSON</button>
+          <button id="reset-progress-btn" class="btn-secondary" style="font-size: 0.85rem; color: var(--danger); border-color: rgba(239,68,68,0.3);">🗑️ Reset Local Progress</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('set-theme-dark').addEventListener('click', () => {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('codeguide_theme', 'dark');
+      showToast('Applied Dark theme', 'info');
+    });
+
+    document.getElementById('set-theme-light').addEventListener('click', () => {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('codeguide_theme', 'light');
+      showToast('Applied Light theme', 'info');
+    });
+
+    document.getElementById('export-data-btn').addEventListener('click', () => {
+      const data = ProgressManager.get();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'codeguide-progress.json';
+      a.click();
+      showToast('Progress exported successfully!', 'success');
+    });
+
+    document.getElementById('reset-progress-btn').addEventListener('click', () => {
+      if (confirm('Are you sure you want to reset all local course progress and XP?')) {
+        localStorage.removeItem('codeguide_user_progress');
+        showToast('Local progress reset.', 'info');
+        setTimeout(() => location.reload(), 600);
+      }
+    });
+  </script>
+</body>
 </html>

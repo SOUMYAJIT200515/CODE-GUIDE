@@ -1,51 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Community-driven Q&A</title>
-      <link rel="icon" href="imag/logo.jepg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="right">
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Developer Community & Discussions</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="hero">
-            <h2>Community-driven Q&A</h2>
-            <p>Get answers to your coding questions from the community.</p>
-        </section>
-        <section class="community">
-            <h3>Features</h3>
-            <ul>
-                <li>Ask questions</li>
-                <li>Answer others' questions</li>
-                <li>Vote on answers</li>
-                <li>Earn reputation</li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">FORUM</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link active"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search forum discussions..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section-header" style="margin-top: 1rem;">
+      <div>
+        <h1 class="section-title">Developer Community & Discussions</h1>
+        <p class="section-desc">Share code architectures, solve tricky bugs, and connect with engineers worldwide.</p>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-    </body>
+      <button id="open-new-post-btn" class="btn-primary-sm" style="padding: 0.6rem 1.25rem;">
+        ✍️ Start Discussion
+      </button>
+    </div>
+
+    <!-- New Discussion Form (Collapsible) -->
+    <div id="new-post-card" style="display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 1.75rem; margin-bottom: 2.5rem; box-shadow: var(--shadow-lg);">
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Start a New Discussion</h3>
+      <form id="create-post-form">
+        <div class="form-group">
+          <label class="form-label">Discussion Title</label>
+          <input type="text" id="post-title-input" class="form-control" placeholder="e.g. Best practices for optimizing React re-renders" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select id="post-category-input" class="form-control" required>
+            <option value="Frontend">Frontend Development</option>
+            <option value="Backend">Backend & APIs</option>
+            <option value="Algorithms">Data Structures & Algorithms</option>
+            <option value="DevOps">DevOps & Cloud</option>
+            <option value="General">General / Career</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content / Question</label>
+          <textarea id="post-content-input" class="form-control" rows="4" placeholder="Explain the problem, provide context or code snippets..." required></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" id="cancel-post-btn" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">Publish Discussion 🚀</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Posts Feed -->
+    <div id="posts-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3.5rem;">
+      <!-- Dynamic posts loaded via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me any coding question or let me help format your forum post!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask a question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Forum Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="Tell us how we can improve the community..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const postsContainer = document.getElementById('posts-container');
+    const newPostCard = document.getElementById('new-post-card');
+    const openPostBtn = document.getElementById('open-new-post-btn');
+    const cancelPostBtn = document.getElementById('cancel-post-btn');
+    const createPostForm = document.getElementById('create-post-form');
+
+    openPostBtn.addEventListener('click', () => {
+      newPostCard.style.display = newPostCard.style.display === 'none' ? 'block' : 'none';
+      if (newPostCard.style.display === 'block') {
+        document.getElementById('post-title-input').focus();
+      }
+    });
+
+    cancelPostBtn.addEventListener('click', () => {
+      newPostCard.style.display = 'none';
+    });
+
+    async function loadCommunityPosts() {
+      try {
+        const res = await fetch('/api/community/posts');
+        const data = await res.json();
+        renderPosts(data.posts || []);
+      } catch (err) {
+        postsContainer.innerHTML = '<div style="color: var(--danger);">Failed to load discussions.</div>';
+      }
+    }
+
+    function renderPosts(posts) {
+      postsContainer.innerHTML = '';
+      if (posts.length === 0) {
+        postsContainer.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 2rem;">No discussions yet. Be the first to start one!</div>';
+        return;
+      }
+
+      posts.forEach(post => {
+        const card = document.createElement('div');
+        card.style.background = 'var(--bg-card)';
+        card.style.border = '1px solid var(--border-color)';
+        card.style.borderRadius = 'var(--radius-lg)';
+        card.style.padding = '1.5rem';
+        card.style.boxShadow = 'var(--shadow-sm)';
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <img src="${post.avatar || 'imag/profile.png'}" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary);" />
+              <div>
+                <div style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">${post.author} <span style="font-size: 0.75rem; color: var(--primary); font-weight: 600; margin-left: 4px;">• ${post.authorRole}</span></div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">${post.timeAgo}</div>
+              </div>
+            </div>
+            <span class="tag-pill" style="color: var(--secondary);">${post.category}</span>
+          </div>
+
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">${post.title}</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">${post.content}</p>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 0.85rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <button class="btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.75rem; ${post.hasUpvoted ? 'color: var(--primary); border-color: var(--primary); font-weight: bold;' : ''}" onclick="toggleUpvote(${post.id})">
+                ▲ Upvote (${post.upvotes})
+              </button>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">💬 ${post.comments ? post.comments.length : 0} Replies</span>
+            </div>
+            <div style="display: flex; gap: 0.4rem;">
+              ${(post.tags || []).map(t => `<span class="tag-pill" style="font-size: 0.75rem;">#${t}</span>`).join('')}
+            </div>
+          </div>
+        `;
+        postsContainer.appendChild(card);
+      });
+    }
+
+    async function toggleUpvote(postId) {
+      try {
+        const res = await fetch('/api/community/upvote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ postId })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          showToast(data.hasUpvoted ? 'Upvoted discussion! +10 XP' : 'Upvote removed', 'info');
+          loadCommunityPosts();
+        }
+      } catch (err) {
+        showToast('Error updating upvote', 'error');
+      }
+    }
+
+    createPostForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('post-title-input').value.trim();
+      const category = document.getElementById('post-category-input').value;
+      const content = document.getElementById('post-content-input').value.trim();
+
+      if (!title || !content) return;
+
+      try {
+        const res = await fetch('/api/community/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, category, content, tags: [category, 'Code'] })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          showToast('Discussion published successfully! +50 XP', 'success');
+          createPostForm.reset();
+          newPostCard.style.display = 'none';
+          loadCommunityPosts();
+        } else {
+          showToast(data.error || 'Failed to post', 'error');
+        }
+      } catch (err) {
+        showToast('Network error while posting', 'error');
+      }
+    });
+
+    loadCommunityPosts();
+  </script>
+</body>
 </html>

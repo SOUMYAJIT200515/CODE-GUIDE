@@ -1,92 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Data Structures & Algorithms</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-      <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search for your coding Language..."
-              class="searchbar-input"
-            />
-            <button class="search-btn">🔍</button>
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Data Structures & Algorithms Masterclass</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="hero">
-            <h2>Data Structures & Algorithms Roadmap</h2>
-            <p>A comprehensive guide to mastering data structures and algorithms for efficient problem-solving.</p>
-        </section>
-        <section class="roadmap">
-            <h3>Steps to Follow</h3>
-            <ul>
-                <li>Learn basic data structures: Arrays, Linked Lists, Stacks, Queues</li>
-                <li>Understand Trees and Graphs</li>
-                <li>Master sorting and searching algorithms</li>
-                <li>Study dynamic programming and greedy algorithms</li>
-                <li>Practice on coding platforms like LeetCode</li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">DSA</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link active"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search DSA topics..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">🧠 Technical Interview Masterclass</div>
+      <h1>Data Structures & Algorithms</h1>
+      <p>
+        Master core algorithms, time & space complexities, and problem-solving patterns required for senior engineering roles.
+      </p>
+      <div class="hero-actions">
+        <a href="#big-o" class="btn-secondary">Big-O Cheat Sheet 📊</a>
+        <a href="code-runner.html?preset=py-two-sum" class="btn-primary">Practice in Playground ⚡</a>
+      </div>
+    </section>
+
+    <!-- Big-O Complexity Matrix -->
+    <div id="big-o" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+        ⚡ Big-O Time & Space Complexity Reference
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Essential asymptotic complexity boundaries for standard data structures and sorting algorithms.
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.875rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--text-muted);">
+              <th style="padding: 0.75rem;">Data Structure / Algorithm</th>
+              <th style="padding: 0.75rem;">Access</th>
+              <th style="padding: 0.75rem;">Search</th>
+              <th style="padding: 0.75rem;">Insertion</th>
+              <th style="padding: 0.75rem;">Deletion</th>
+              <th style="padding: 0.75rem;">Space (Worst)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.75rem; color: var(--text-primary); font-weight: 600;">Array / Dynamic Array</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1)</td>
+              <td style="padding: 0.75rem; color: var(--warning);">O(n)</td>
+              <td style="padding: 0.75rem; color: var(--warning);">O(n)</td>
+              <td style="padding: 0.75rem; color: var(--warning);">O(n)</td>
+              <td style="padding: 0.75rem; color: var(--text-secondary);">O(n)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.75rem; color: var(--text-primary); font-weight: 600;">Hash Table / HashMap</td>
+              <td style="padding: 0.75rem; color: var(--text-muted);">-</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1) avg</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1) avg</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1) avg</td>
+              <td style="padding: 0.75rem; color: var(--text-secondary);">O(n)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.75rem; color: var(--text-primary); font-weight: 600;">Binary Search Tree (Balanced)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(log n)</td>
+              <td style="padding: 0.75rem; color: var(--text-secondary);">O(n)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.75rem; color: var(--text-primary); font-weight: 600;">Singly Linked List</td>
+              <td style="padding: 0.75rem; color: var(--warning);">O(n)</td>
+              <td style="padding: 0.75rem; color: var(--warning);">O(n)</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1) [head]</td>
+              <td style="padding: 0.75rem; color: var(--success);">O(1) [head]</td>
+              <td style="padding: 0.75rem; color: var(--text-secondary);">O(n)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.75rem; color: var(--text-primary); font-weight: 600;">QuickSort</td>
+              <td style="padding: 0.75rem; color: var(--text-muted);">-</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(n log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(n log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(n log n)</td>
+              <td style="padding: 0.75rem; color: var(--primary);">O(log n)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Core Topic Modules & Problem Breakdowns -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Core DSA Topics & Patterns</h2>
+        <p class="section-desc">Click any pattern to see time complexity breakdown and live runnable code.</p>
+      </div>
+    </div>
+
+    <div class="roadmap-timeline">
+      <!-- Item 1: Arrays & Two Pointers -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-step-tag">Pattern 1 • Fundamental</div>
+          <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 0.5rem;">Two Pointers & Sliding Window</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            Techniques to reduce quadratic O(n²) nested loop searches into linear O(n) passes over sorted arrays or subarrays.
+          </p>
+
+          <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; margin-bottom: 1rem;">
+            # Two Sum II - Input Array Is Sorted (O(n) time, O(1) space)<br>
+            def twoSumSorted(numbers, target):<br>
+            &nbsp;&nbsp;l, r = 0, len(numbers) - 1<br>
+            &nbsp;&nbsp;while l &lt; r:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;total = numbers[l] + numbers[r]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if total == target: return [l + 1, r + 1]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;elif total &lt; target: l += 1<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;else: r -= 1<br>
+            &nbsp;&nbsp;return []
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem;">
+              <span class="tag-pill">Two Sum II</span>
+              <span class="tag-pill">3Sum</span>
+              <span class="tag-pill">Container With Most Water</span>
+            </div>
+            <a href="code-runner.html?preset=py-two-sum" class="btn-primary-sm">Run in Playground →</a>
+          </div>
+        </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script>
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Search for keywords in roadmap
-            const roadmapItems = document.querySelectorAll('.roadmap ul li');
-            let found = false;
-            roadmapItems.forEach(item => {
-                if (item.textContent.toLowerCase().includes(query)) {
-                    found = true;
-                    item.style.backgroundColor = 'yellow';
-                    item.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            if (!found) {
-                alert('No matching content found for "' + query + '"');
-            }
-        }
+      <!-- Item 2: Binary Search Trees -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-step-tag">Pattern 2 • Trees & Traversal</div>
+          <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 0.5rem;">Binary Search Trees & DFS / BFS</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            Hierarchical structures where left subtree &lt; root &lt; right subtree. Inorder traversal yields sorted elements.
+          </p>
 
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
+          <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; margin-bottom: 1rem;">
+            # Validate Binary Search Tree (O(n) time, O(h) space)<br>
+            def isValidBST(root, min_val=float('-inf'), max_val=float('inf')):<br>
+            &nbsp;&nbsp;if not root: return True<br>
+            &nbsp;&nbsp;if not (min_val &lt; root.val &lt; max_val): return False<br>
+            &nbsp;&nbsp;return isValidBST(root.left, min_val, root.val) and \<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isValidBST(root.right, root.val, max_val)
+          </div>
 
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-      </script>
-    </body>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem;">
+              <span class="tag-pill">Invert Binary Tree</span>
+              <span class="tag-pill">LCA of BST</span>
+              <span class="tag-pill">Level Order BFS</span>
+            </div>
+            <a href="code-runner.html" class="btn-primary-sm">Run in Playground →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Dynamic Programming -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-step-tag">Pattern 3 • Optimization</div>
+          <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 0.5rem;">Dynamic Programming & Memoization</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            Breaking complex problems down into overlapping subproblems with optimal substructure.
+          </p>
+
+          <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; margin-bottom: 1rem;">
+            # Coin Change - Bottom Up Tabulation (O(amount * len(coins)))<br>
+            def coinChange(coins, amount):<br>
+            &nbsp;&nbsp;dp = [float('inf')] * (amount + 1)<br>
+            &nbsp;&nbsp;dp[0] = 0<br>
+            &nbsp;&nbsp;for coin in coins:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;for x in range(coin, amount + 1):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[x] = min(dp[x], dp[x - coin] + 1)<br>
+            &nbsp;&nbsp;return dp[amount] if dp[amount] != float('inf') else -1
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem;">
+              <span class="tag-pill">Climbing Stairs</span>
+              <span class="tag-pill">Coin Change</span>
+              <span class="tag-pill">Longest Common Subsequence</span>
+            </div>
+            <a href="code-runner.html?preset=py-fibonacci" class="btn-primary-sm">Run in Playground →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me to explain any DSA algorithm, trace execution step-by-step, or prove Big-O bounds!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask a DSA question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share DSA Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="DSA Content">DSA Algorithms</option>
+          <option value="Visualizer">Complexity Matrix</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="What algorithm would you like to see next?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>

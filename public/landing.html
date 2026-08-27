@@ -1,191 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Coding Guide - Your Ultimate Coding Companion</title>
-    <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-image: url('imag/back.jpg');
-            background-size: cover;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .hero-content {
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 0 10px;
-            background: #ff6b6b;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: #ff5252;
-        }
-
-        .features {
-            padding: 80px 20px;
-            background: white;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature {
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .feature p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .animated-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .animated-bg div {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .animated-bg div:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .animated-bg div:nth-child(2) { left: 20%; animation-delay: 1s; }
-        .animated-bg div:nth-child(3) { left: 30%; animation-delay: 2s; }
-        .animated-bg div:nth-child(4) { left: 40%; animation-delay: 3s; }
-        .animated-bg div:nth-child(5) { left: 50%; animation-delay: 4s; }
-        .animated-bg div:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .animated-bg div:nth-child(7) { left: 70%; animation-delay: 0s; }
-        .animated-bg div:nth-child(8) { left: 80%; animation-delay: 1s; }
-        .animated-bg div:nth-child(9) { left: 90%; animation-delay: 2s; }
-        .animated-bg div:nth-child(10) { left: 100%; animation-delay: 3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            p { font-size: 1.2rem; }
-            .btn { padding: 12px 25px; margin: 5px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Modern Developer Learning Platform & Playground</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="landing.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">PRO</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore Guides</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search Python, React, DSA, Git..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <a href="login.html" class="btn-secondary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">Sign In</a>
+      <a href="home.html" class="btn-primary-sm">Open App →</a>
+    </div>
+  </header>
+
+  <!-- Interactive Announcement Banner -->
+  <div class="announcement-bar">
+    <div class="ticker-content">
+      <span class="ticker-pill">NEW 2.0</span>
+      <span class="ticker-text">Interactive Python 3 & Web Playground is now live in your browser!</span>
+    </div>
+    <a href="code-runner.html" class="ticker-action">Try In Browser →</a>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="container">
     <section class="hero">
-        <div class="animated-bg">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="hero-content">
-            <img src="imag/logo.jpeg" alt="Logo" height="200" style="vertical-align: middle; margin-bottom: 20px;" />
-            <h1>Welcome to Coding Guide</h1>
-            <p>Your ultimate companion for mastering programming languages, frameworks, and best practices. Explore tutorials, practice coding, and elevate your skills to the next level.</p>
-            <a href="explore.html" class="btn">Explore Guide</a>
-            <a href="login.html" class="btn">Get Started</a>
-        </div>
+      <div class="hero-badge">🚀 The All-in-One Developer Growth Hub</div>
+      <h1>Master Programming Through Real Interactive Practice</h1>
+      <p>
+        From foundational data structures to full-stack microservices. Explore structured roadmaps, execute Python & JavaScript directly in-browser, and level up your software engineering career.
+      </p>
+
+      <div class="hero-actions">
+        <a href="home.html" class="btn-primary">Get Started Free →</a>
+        <a href="code-runner.html" class="btn-secondary">Launch Code Runner ⚡</a>
+      </div>
     </section>
+
+    <!-- Platform Highlights Stats -->
+    <div class="profile-stats-grid" style="margin-bottom: 3.5rem;">
+      <div class="stat-box">
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Structured Guides</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">In-Browser Code Execution</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">12+</div>
+        <div class="stat-label">Curated Career Roadmaps</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">25K+</div>
+        <div class="stat-label">Learners & Problem Solvers</div>
+      </div>
+    </div>
+
+    <!-- Feature Pillars -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Why Developers Choose Code Guide</h2>
+        <p class="section-desc">Designed with modern visual hierarchy, zero friction, and hands-on developer tooling.</p>
+      </div>
+      <a href="explore.html" class="btn-secondary" style="font-size: 0.875rem;">View Full Catalog →</a>
+    </div>
+
+    <div class="grid-cards">
+      <div class="guide-card">
+        <div class="card-icon">⚡</div>
+        <h3>Zero-Setup Code Playground</h3>
+        <p>Run Python using WebAssembly (Pyodide), test JavaScript/TypeScript snippets, and render HTML/CSS live with instant split-pane preview.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Python / JS / HTML</span>
+          <a href="code-runner.html" class="card-link-btn">Launch IDE →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🧠</div>
+        <h3>DSA Masterclass & Big-O</h3>
+        <p>Visual explanations for Linked Lists, Binary Trees, Graphs, Sorting algorithms, and curated LeetCode problem breakdowns with time complexities.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Algorithms</span>
+          <a href="data-structures-algorithms.html" class="card-link-btn">Learn DSA →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🗺️</div>
+        <h3>Role-Based Roadmaps</h3>
+        <p>Step-by-step career path guides for Frontend, Backend, Full-Stack, Cloud & DevOps, and Mobile App Engineers with interactive milestone checkboxes.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Career Paths</span>
+          <a href="roadmap.html" class="card-link-btn">Explore Paths →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🌿</div>
+        <h3>Git & DevOps Mastery</h3>
+        <p>Demystify Git rebase, merge conflicts, branching strategies, and CI/CD pipelines through hands-on practical cheat sheets.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Git / Docker / CI</span>
+          <a href="version-control-git.html" class="card-link-btn">View Git Guide →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🤖</div>
+        <h3>AI Assistant & Explanations</h3>
+        <p>Instant code explanations, debugging tips, and syntax examples powered by integrated assistant intelligence right at your fingertips.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">AI Helper</span>
+          <a href="javascript:void(0)" onclick="sendQuickPrompt('Explain QuickSort algorithm with an example in Python')" class="card-link-btn">Ask AI →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">💬</div>
+        <h3>Developer Community</h3>
+        <p>Engage with fellow learners, share project milestones, discuss architectural patterns, and get feedback from experienced mentors.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Discussions</span>
+          <a href="community.html" class="card-link-btn">Join Community →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Widgets -->
+  <div id="chat-button" title="Open AI Coding Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Hello! I'm your Code Guide Assistant. Ask me to explain code concepts, debug algorithms, or write boilerplates for Python, JS, React, C++, and Git!
+      </div>
+    </div>
+    <div style="padding: 6px 12px; display: flex; gap: 6px; overflow-x: auto; background: var(--bg-tertiary);">
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Explain React useState and useEffect')">React Hooks</button>
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Explain Binary Search in Python')">Binary Search</button>
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Git rebase vs merge')">Git Rebase</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask any coding question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Platform Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="UI">UI / UX Design</option>
+          <option value="Performance">Execution Performance</option>
+          <option value="Content">Tutorial Content</option>
+          <option value="New Feature">Feature Request</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Rating</label>
+        <select id="improve-rating" class="form-control" required>
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+          <option value="2">⭐⭐ - Needs Work</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="What can we improve?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Code Guide</h4>
+        <p>A comprehensive developer education portal with interactive in-browser code sandboxes, structured roadmaps, and computer science masterclasses.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="explore.html">Frontend Guides</a></li>
+          <li><a href="explore.html">Backend & APIs</a></li>
+          <li><a href="data-structures-algorithms.html">Data Structures</a></li>
+          <li><a href="code-runner.html">Code Playground</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Roadmaps</h5>
+        <ul>
+          <li><a href="roadmap.html">Full-Stack Roadmap</a></li>
+          <li><a href="roadmap.html">DevOps Engineer</a></li>
+          <li><a href="roadmap.html">AI / ML Engineer</a></li>
+          <li><a href="version-control-git.html">Git Masterclass</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Account & More</h5>
+        <ul>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="settings.html">Preferences</a></li>
+          <li><a href="admin-home.html">Admin Portal</a></li>
+          <li><a href="community.html">Community Discussions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Code Guide Platform. Open source & community driven.</span>
+      <span>Engineered for modern software developers worldwide.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

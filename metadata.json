@@ -1,0 +1,8 @@
+{
+  "name": "Code Guide",
+  "description": "A web-based platform to help programmers and students learn coding through structured tutorials, code runners, and learning paths.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

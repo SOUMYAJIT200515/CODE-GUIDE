@@ -1,179 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Admin Dashboard</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE - Admin</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search students or resources"
-              class="searchbar-input"
-              style="border-radius: 24px; padding-left: 50px; padding-right: 50px; height: 40px; font-size: 14px;"
-            />
-            <button class="search-btn" style="border-radius: 50%; width: 36px; height: 36px; right: 10px; top: 50%; transform: translateY(-50%);">
-              🔍
-            </button>
-          </div>
-          <div class="right">
-            <a href="landing.html" class="logout-btn flex items-center gap-2">
-              🚪
-              Logout
-            </a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px" width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Admin Dashboard: Monitor and Guide Students
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Admin Operations & Analytics Portal</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      <div class="container">
-        <section class="hero">
-            <h2>Admin Dashboard</h2>
-            <p>Monitor student progress, manage resources, and oversee the learning platform.</p>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge" style="background: rgba(239, 68, 68, 0.2); color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">ADMIN</span></span>
+      </div>
+    </a>
 
-        <section class="student-progress">
-            <h3>Student Progress Overview</h3>
-            <p>Track the learning progress of enrolled students.</p>
-            <table class="progress-table">
-                <thead>
-                    <tr>
-                        <th>Student Name</th>
-                        <th>Course</th>
-                        <th>Progress</th>
-                        <th>Completion %</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Alice Johnson</td>
-                        <td>JavaScript</td>
-                        <td><div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div></td>
-                        <td>75%</td>
-                        <td><a href="profile.html">View Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>Bob Smith</td>
-                        <td>Python</td>
-                        <td><div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div></td>
-                        <td>60%</td>
-                        <td><a href="profile.html">View Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>Charlie Brown</td>
-                        <td>React</td>
-                        <td><div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div></td>
-                        <td>90%</td>
-                        <td><a href="profile.html">View Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>Diana Prince</td>
-                        <td>SQL</td>
-                        <td><div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div></td>
-                        <td>45%</td>
-                        <td><a href="profile.html">View Profile</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="admin-home.html" class="nav-link active"><span>📊</span> Admin Portal</a></li>
+    </ul>
 
-        <section class="monitoring">
-            <h3>Student Monitoring</h3>
-            <p>Recent activities and alerts from students.</p>
-            <div class="activity-log">
-                <div class="activity-item">
-                    <p><strong>Alice Johnson</strong> completed Module 5 in JavaScript - 2 hours ago</p>
-                </div>
-                <div class="activity-item">
-                    <p><strong>Bob Smith</strong> started Python Basics course - 5 hours ago</p>
-                </div>
-                <div class="activity-item">
-                    <p><strong>Charlie Brown</strong> submitted React project - 1 day ago</p>
-                </div>
-                <div class="activity-item">
-                    <p><strong>Diana Prince</strong> asked a question in SQL forum - 2 days ago</p>
-                </div>
-            </div>
-        </section>
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <section class="admin-tools">
-            <h3>Admin Tools</h3>
-            <p>Manage platform resources and settings.</p>
-            <ul>
-                <li><a href="settings.html">Platform Settings</a></li>
-                <li><a href="community.html">Manage Community</a></li>
-                <li><a href="featured.html">Update Featured Resources</a></li>
-            </ul>
-        </section>
+  <main class="container">
+    <div class="section-header" style="margin-top: 1rem;">
+      <div>
+        <h1 class="section-title">Platform Analytics & Operations Dashboard</h1>
+        <p class="section-desc">Live user traffic, execution throughput, feedback inbox, and system health.</p>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <style>
-        .progress-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .progress-table th, .progress-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        .progress-table th {
-            background-color: #f2f2f2;
-        }
-        .progress-bar {
-            width: 100%;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 20px;
-            background-color: #4CAF50;
-            transition: width 0.3s;
-        }
-        .activity-log {
-            margin-top: 20px;
-        }
-        .activity-item {
-            background-color: #f9f9f9;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .admin-tools ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .admin-tools li {
-            margin-bottom: 10px;
-        }
-        .admin-tools a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .admin-tools a:hover {
-            text-decoration: underline;
-        }
-      </style>
-  </body>
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn-secondary" style="font-size: 0.85rem;" onclick="refreshAdminStats()">🔄 Refresh Metrics</button>
+        <button class="btn-primary-sm" style="font-size: 0.85rem;" onclick="showToast('System operational. All microservices healthy.', 'success')">System Health: 100%</button>
+      </div>
+    </div>
+
+    <!-- Metrics Stats Grid -->
+    <div class="profile-stats-grid">
+      <div class="stat-box">
+        <div class="stat-value" id="stat-total-users">1,421</div>
+        <div class="stat-label">Total Registered Developers</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-active-today">328</div>
+        <div class="stat-label">Active Learners Today</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-executions">1,890</div>
+        <div class="stat-label">WASM Code Executions</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-tutorials">85</div>
+        <div class="stat-label">Published Guides & DSA</div>
+      </div>
+    </div>
+
+    <!-- Feedback & Submissions Table -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 1.75rem; margin-bottom: 2.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Recent Community Feedback & Feature Requests</h3>
+        <span class="tag-pill" style="color: var(--primary);">Live Inbox</span>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--text-muted);">
+              <th style="padding: 0.75rem;">User</th>
+              <th style="padding: 0.75rem;">Category</th>
+              <th style="padding: 0.75rem;">Rating</th>
+              <th style="padding: 0.75rem;">Comment</th>
+              <th style="padding: 0.75rem;">Date</th>
+            </tr>
+          </thead>
+          <tbody id="feedback-table-body">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- User Management Table -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 1.75rem; margin-bottom: 3.5rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem;">Registered Users & Access Roles</h3>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--text-muted);">
+              <th style="padding: 0.75rem;">Username</th>
+              <th style="padding: 0.75rem;">Email</th>
+              <th style="padding: 0.75rem;">Role</th>
+              <th style="padding: 0.75rem;">Streak</th>
+              <th style="padding: 0.75rem;">Level</th>
+            </tr>
+          </thead>
+          <tbody id="users-table-body">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    async function refreshAdminStats() {
+      try {
+        const res = await fetch('/api/admin/stats');
+        const data = await res.json();
+
+        document.getElementById('stat-total-users').textContent = data.totalUsers.toLocaleString();
+        document.getElementById('stat-active-today').textContent = data.activeLearnersToday.toLocaleString();
+        document.getElementById('stat-executions').textContent = data.codeExecutionsToday.toLocaleString();
+        document.getElementById('stat-tutorials').textContent = data.totalTutorials;
+
+        // Render Feedback Table
+        const fbBody = document.getElementById('feedback-table-body');
+        fbBody.innerHTML = '';
+        (data.recentFeedback || []).forEach(f => {
+          const tr = document.createElement('tr');
+          tr.style.borderBottom = '1px solid var(--border-color)';
+          tr.innerHTML = `
+            <td style="padding: 0.75rem; font-weight: 600; color: var(--text-primary);">${f.user}</td>
+            <td style="padding: 0.75rem;"><span class="tag-pill">${f.category}</span></td>
+            <td style="padding: 0.75rem; color: var(--warning);">${'⭐'.repeat(f.rating)}</td>
+            <td style="padding: 0.75rem; color: var(--text-secondary);">${f.comment}</td>
+            <td style="padding: 0.75rem; color: var(--text-muted);">${f.date}</td>
+          `;
+          fbBody.appendChild(tr);
+        });
+
+        // Render Users Table
+        const usrBody = document.getElementById('users-table-body');
+        usrBody.innerHTML = '';
+        (data.registeredUsersList || []).forEach(u => {
+          const tr = document.createElement('tr');
+          tr.style.borderBottom = '1px solid var(--border-color)';
+          tr.innerHTML = `
+            <td style="padding: 0.75rem; font-weight: 600; color: var(--text-primary);">${u.username}</td>
+            <td style="padding: 0.75rem; color: var(--text-secondary);">${u.email}</td>
+            <td style="padding: 0.75rem;"><span class="tag-pill" style="color: ${u.role === 'Admin' ? 'var(--danger)' : 'var(--primary)'};">${u.role}</span></td>
+            <td style="padding: 0.75rem; color: var(--success);">🔥 ${u.streakDays} days</td>
+            <td style="padding: 0.75rem; font-weight: bold;">Level ${u.level}</td>
+          `;
+          usrBody.appendChild(tr);
+        });
+
+        showToast('Admin analytics updated', 'info');
+      } catch (err) {
+        showToast('Failed to load admin metrics', 'error');
+      }
+    }
+
+    refreshAdminStats();
+  </script>
+</body>
 </html>

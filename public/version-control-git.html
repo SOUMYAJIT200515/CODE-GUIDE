@@ -1,61 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Version Control with Git</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-      <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search for your coding Language..."
-              class="searchbar-input"
-            />
-            <button class="search-btn">🔍</button>
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Git & Version Control Studio</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="hero">
-            <h2>Version Control with Git Roadmap</h2>
-            <p>A step-by-step guide to mastering Git for version control and collaboration.</p>
-        </section>
-        <section class="roadmap">
-            <h3>Steps to Follow</h3>
-            <ul>
-                <li>Understand version control concepts</li>
-                <li>Learn Git basics: init, add, commit</li>
-                <li>Master branching and merging</li>
-                <li>Explore remote repositories and GitHub</li>
-                <li>Practice collaborative workflows and pull requests</li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">GIT</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search Git commands..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">🌿 Version Control & Team Collaboration</div>
+      <h1>Interactive Git Mastery Studio</h1>
+      <p>
+        Understand Git trees, branching workflows, cherry-picking, and conflict resolution with our live interactive Git simulator.
+      </p>
+    </section>
+
+    <!-- Interactive Git Terminal Simulator -->
+    <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 3.5rem;">
+      <div style="background: #111827; padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 6px;">
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">bash — git-simulator:~/workspace (feature/auth)</span>
+        <button id="clear-git-btn" class="btn-secondary" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">Clear</button>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-    </body>
+      <div id="git-terminal-body" style="padding: 1.25rem; font-family: var(--font-mono); font-size: 0.9rem; min-height: 220px; max-height: 340px; overflow-y: auto; color: #38bdf8;">
+        <div>Code Guide Interactive Git Terminal v1.0</div>
+        <div style="color: #94a3b8; margin: 4px 0 12px;">Type commands like <span style="color: #a5b4fc;">git status</span>, <span style="color: #a5b4fc;">git log</span>, <span style="color: #a5b4fc;">git branch</span>, <span style="color: #a5b4fc;">git checkout -b feature</span>, or <span style="color: #a5b4fc;">git rebase main</span>.</div>
+      </div>
+
+      <div style="display: flex; border-top: 1px solid var(--border-color); background: #0c121e; padding: 0.75rem 1.25rem; align-items: center; gap: 0.5rem;">
+        <span style="color: var(--success); font-family: var(--font-mono); font-weight: bold;">➜ workspace (main) $</span>
+        <input type="text" id="git-cli-input" placeholder="Type a git command here (e.g. git status)..." style="flex: 1; background: transparent; border: none; outline: none; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem;" />
+        <button id="run-git-cmd-btn" class="btn-primary-sm" style="font-size: 0.8rem; padding: 0.35rem 0.85rem;">Execute</button>
+      </div>
+    </div>
+
+    <!-- Git Cheat Sheets & Workflows -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Essential Git Workflow Cheat Sheets</h2>
+        <p class="section-desc">Copy-ready commands for clean repositories and frictionless collaboration.</p>
+      </div>
+    </div>
+
+    <div class="grid-cards">
+      <div class="guide-card">
+        <div class="card-icon">🌿</div>
+        <h3>Clean Branch & Rebase Flow</h3>
+        <p>Keep a linear, conflict-free commit history when collaborating on pull requests.</p>
+        <div style="background: #090d16; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #a5b4fc; margin-bottom: 1rem;">
+          git checkout -b feature/search<br>
+          # make changes & commit<br>
+          git fetch origin main<br>
+          git rebase origin/main<br>
+          git push -u origin feature/search
+        </div>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="copySnippet('git checkout -b feature/search\ngit fetch origin main\ngit rebase origin/main\ngit push -u origin feature/search')">📋 Copy Workflow</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🔄</div>
+        <h3>Undo & Recovery Cheat Sheet</h3>
+        <p>Safely roll back changes without losing your local working directory progress.</p>
+        <div style="background: #090d16; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #a5b4fc; margin-bottom: 1rem;">
+          git stash save "WIP feature"<br>
+          git stash pop<br>
+          git reset --soft HEAD~1 # keep code<br>
+          git restore --staged filename.js
+        </div>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="copySnippet('git stash\ngit stash pop\ngit reset --soft HEAD~1\ngit restore --staged .')">📋 Copy Workflow</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🍒</div>
+        <h3>Cherry-Pick & Bisecting</h3>
+        <p>Port specific commit fixes across branches and locate regressions via binary search.</p>
+        <div style="background: #090d16; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #a5b4fc; margin-bottom: 1rem;">
+          git cherry-pick &lt;commit-hash&gt;<br>
+          git bisect start<br>
+          git bisect bad<br>
+          git bisect good &lt;known-good-hash&gt;
+        </div>
+        <button class="btn-secondary" style="width: 100%; font-size: 0.8rem;" onclick="copySnippet('git cherry-pick <commit-hash>\ngit bisect start\ngit bisect bad\ngit bisect good <hash>')">📋 Copy Workflow</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Chatbot & Feedback Modals -->
+  <div id="chat-button" title="Open AI Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Ask me any question about Git commands, resolving merge conflicts, or GitHub Actions!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask a Git question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
+
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Git Studio Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Feedback</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="Tell us how we can improve the Git Studio..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function copySnippet(text) {
+      navigator.clipboard.writeText(text);
+      showToast('Git workflow copied to clipboard!', 'success');
+    }
+
+    // Git Terminal Simulator Logic
+    const termBody = document.getElementById('git-terminal-body');
+    const cliInput = document.getElementById('git-cli-input');
+    const runGitBtn = document.getElementById('run-git-cmd-btn');
+    const clearGitBtn = document.getElementById('clear-git-btn');
+
+    let currentBranch = 'main';
+
+    function handleGitCmd() {
+      const raw = cliInput.value.trim();
+      if (!raw) return;
+
+      const line = document.createElement('div');
+      line.style.color = '#f8fafc';
+      line.style.margin = '4px 0';
+      line.innerHTML = `<span style="color: #10b981;">➜ workspace (${currentBranch}) $</span> ${raw}`;
+      termBody.appendChild(line);
+      cliInput.value = '';
+
+      const resp = document.createElement('div');
+      resp.style.color = '#38bdf8';
+      resp.style.marginBottom = '8px';
+
+      const cmd = raw.toLowerCase();
+      if (cmd === 'git status') {
+        resp.innerHTML = `On branch ${currentBranch}<br>Your branch is up to date with 'origin/${currentBranch}'.<br><br>Changes not staged for commit:<br>&nbsp;&nbsp;(use "git add &lt;file&gt;..." to update what will be committed)<br>&nbsp;&nbsp;<span style="color: #ef4444;">modified: &nbsp; src/auth/login.ts</span><br>&nbsp;&nbsp;<span style="color: #ef4444;">modified: &nbsp; public/style.css</span><br><br>no changes added to commit (use "git add")`;
+      } else if (cmd === 'git branch') {
+        resp.innerHTML = `* <span style="color: #10b981;">${currentBranch}</span><br>&nbsp;&nbsp;develop<br>&nbsp;&nbsp;feature/fast-search<br>&nbsp;&nbsp;release/v2.0`;
+      } else if (cmd.startsWith('git checkout -b ') || cmd.startsWith('git switch -c ')) {
+        const parts = raw.split(' ');
+        currentBranch = parts[parts.length - 1];
+        resp.innerHTML = `Switched to a new branch '<span style="color: #10b981;">${currentBranch}</span>'`;
+      } else if (cmd.startsWith('git checkout ') || cmd.startsWith('git switch ')) {
+        const parts = raw.split(' ');
+        currentBranch = parts[parts.length - 1];
+        resp.innerHTML = `Switched to branch '<span style="color: #10b981;">${currentBranch}</span>'`;
+      } else if (cmd === 'git log' || cmd === 'git log --oneline') {
+        resp.innerHTML = `<span style="color: #f59e0b;">e4b7c89</span> (HEAD -> ${currentBranch}) feat: deploy professional UI and code playground<br><span style="color: #f59e0b;">a18c392</span> (origin/main) refactor: optimize Python WASM Pyodide runtime<br><span style="color: #f59e0b;">90fa12b</span> docs: update full-stack career roadmap`;
+      } else if (cmd.startsWith('git commit')) {
+        resp.innerHTML = `[${currentBranch} 7cf291a] commit recorded<br> 2 files changed, 48 insertions(+), 12 deletions(-)`;
+      } else if (cmd.startsWith('git rebase')) {
+        resp.innerHTML = `Successfully rebased and updated refs/heads/${currentBranch}.`;
+      } else if (cmd === 'git pull' || cmd === 'git fetch') {
+        resp.innerHTML = `Already up to date.`;
+      } else {
+        resp.innerHTML = `Executed: ${raw}<br><span style="color: #94a3b8;">Command executed in sandbox.</span>`;
+      }
+
+      termBody.appendChild(resp);
+      termBody.scrollTop = termBody.scrollHeight;
+    }
+
+    runGitBtn.addEventListener('click', handleGitCmd);
+    cliInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleGitCmd();
+    });
+
+    clearGitBtn.addEventListener('click', () => {
+      termBody.innerHTML = '<div>Terminal cleared.</div>';
+    });
+  </script>
+</body>
 </html>

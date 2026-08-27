@@ -1,50 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Unique Features</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Unique Platform Features</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      
-      <div class="container">
-        <section class="unique">
-            <h3>Unique Feature</h3>
-            <p>Discover our exclusive coding challenges and interactive tutorials designed to enhance your learning experience.</p>
-            <ul>
-                <li><a href="code-runner.html">Interactive coding playground</a></li>
-                <li><a href="collaboration.html">Real-time code collaboration</a></li>
-                <li><a href="learning-paths.html">Personalized learning paths</a></li>
-                <li><a href="community.html">Community-driven Q&A</a></li>
-            </ul>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">UNIQUE</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search features..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">⚡ Advanced Architecture</div>
+      <h1>Unique Engineering Capabilities</h1>
+      <p>
+        Discover what sets Code Guide apart: in-browser WebAssembly runtimes, live interactive sandboxes, and AI assistance.
+      </p>
+    </section>
+
+    <div class="grid-cards">
+      <div class="guide-card">
+        <div class="card-icon">⚡</div>
+        <h3>Pyodide WebAssembly Python 3</h3>
+        <p>No backend server lag, no container spin-up wait time. Full CPython compiled directly to WebAssembly running at near-native speeds in your browser.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">WASM / Pyodide</span>
+          <a href="code-runner.html?preset=py-two-sum" class="btn-primary-sm">Try Runner →</a>
+        </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-    </body>
+      <div class="guide-card">
+        <div class="card-icon">🌿</div>
+        <h3>Interactive Git CLI Simulator</h3>
+        <p>Safe sandbox to practice dangerous commands like interactive rebase, squashing, hard resets, and branch merges before touching production repos.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Git Terminal</span>
+          <a href="version-control-git.html" class="btn-primary-sm">Open Terminal →</a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-icon">🤖</div>
+        <h3>Context-Aware AI Assistant</h3>
+        <p>Trained to explain code snippets, prove algorithmic time bounds, generate idiomatic boilerplates, and suggest refactorings.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">AI Intelligence</span>
+          <button class="btn-secondary" style="font-size: 0.8rem;" onclick="sendQuickPrompt('Explain how Pyodide works in the browser')">Ask AI →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>

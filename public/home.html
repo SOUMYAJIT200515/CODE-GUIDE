@@ -1,282 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - Home</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1  style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="🔍 Search for your coding Language..."
-              class="searchbar-input"
-              style="border-radius: 24px; padding-left: 50px; padding-right: 50px; height: 40px; font-size: 14px;"
-            />
-            <button class="search-btn" style="border-radius: 50%; width: 36px; height: 36px; right: 10px; top: 50%; transform: translateY(-50%);">
-              🔍
-            </button>
-            </div>
-          <div class="right">
-            <a href="landing.html" class="logout-btn flex items-center gap-2">
-              🚪
-              Logout
-            </a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Developer Dashboard</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">PRO</span></span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link active"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
+
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search Python, React, DSA, Git..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
       
-      <div class="container">
-        <section class="hero">
-            <h2>Explore Our Comprehensive Coding Guides</h2>
-            <p>Dive into detailed tutorials, best practices, and resources for various programming languages and technologies.</p>
-        </section>
-
-        <section class="categories">
-            <div class="category">
-                <h3>Frontend Development</h3>
-                <p>Master the art of creating beautiful and interactive user interfaces.</p>
-                <ul>
-                    <li><a href="https://www.geeksforgeeks.org/html/html-tutorial/">HTML</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/css/css-cheat-sheet-a-basic-guide-to-css/">CSS</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/javascript/javascript-tutorial/">JavaScript</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/reactjs/react/">React</a></li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Backend Development</h3>
-                <p>Build robust server-side applications and APIs.</p>
-                <ul>
-                    <li><a href="https://www.geeksforgeeks.org/python/python-programming-language-tutorial/">Python</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/node-js/nodejs/">Node.js</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/php/php-tutorial/">PHP</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/sql/sql-tutorial/">SQL</a></li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Programming Languages</h3>
-                <p>Learn fundamental and advanced programming concepts.</p>
-                <ul>
-                    <li><a href="https://www.geeksforgeeks.org/java/java/">Java</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/cpp/c-plus-plus/">C++</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/typescript/typescript-tutorial/">TypeScript</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/c-sharp/csharp-tutorial/">C#</a></li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Coding Practice</h3>
-                <p>Sharpen your skills with coding challenges and exercises.</p>
-                <ul>
-                    <li><a href="https://leetcode.com/">LeetCode</a></li>
-                    <li><a href="https://www.hackerrank.com/">HackerRank</a></li>
-                    <li><a href="https://www.codechef.com/">CodeChef</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/explore">GeeksforGeeks Practice</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="featured">
-            <h3>Learning Roadmaps</h3>
-            <p>Follow structured guides to master key coding topics.</p>
-             <div class="featured-grid">
-               
-            <p><a href="featured.html">View All Featured Resources</a></p>
-        </section>
-
-        <section class="unique">
-            <h3>Unique Feature</h3>
-            <p>Discover our exclusive coding challenges and interactive tutorials designed to enhance your learning experience.</p>
-            <p><a href="unique.html">Explore Unique Features</a></p>
-        </section>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-
-      <!-- Improvement Comment Widget -->
-      <div id="improve-button">📝</div>
-      <div id="improve-modal" class="improve-modal">
-        <div class="improve-header">
-          <span>Improvement Comment</span>
-          <button id="close-improve">×</button>
-        </div>
-        <form id="improve-form">
-          <label for="improve-category">Category:</label>
-          <select id="improve-category" required>
-            <option value="" disabled selected>Select category</option>
-            <option value="UI">UI</option>
-            <option value="Performance">Performance</option>
-            <option value="Content">Content</option>
-            <option value="Other">Other</option>
-          </select>
-          <label for="improve-rating">Rating:</label>
-          <select id="improve-rating" required>
-            <option value="" disabled selected>Select rating</option>
-            <option value="1">1 - Poor</option>
-            <option value="2">2 - Fair</option>
-            <option value="3">3 - Good</option>
-            <option value="4">4 - Very Good</option>
-            <option value="5">5 - Excellent</option>
-          </select>
-          <label for="improve-comment">Comment:</label>
-          <textarea id="improve-comment" rows="4" placeholder="Enter your comment here..." required></textarea>
-          <div class="improve-buttons">
-            <button type="submit">Submit</button>
-            <button type="button" id="cancel-improve">Cancel</button>
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile Avatar" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <div class="dropdown-header">
+            <div class="dropdown-user-name">Alex Morgan</div>
+            <div class="dropdown-user-role">Senior Full-Stack Engineer</div>
           </div>
-        </form>
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="admin-home.html" class="dropdown-item"><span>📊</span> Admin Portal</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Announcement Banner -->
+  <div class="announcement-bar">
+    <div class="ticker-content">
+      <span class="ticker-pill">DAILY CHALLENGE</span>
+      <span class="ticker-text">Solve "Two Sum" with Hash Map in Python & JavaScript</span>
+    </div>
+    <a href="code-runner.html?challenge=two-sum" class="ticker-action">Launch in Playground →</a>
+  </div>
+
+  <main class="container">
+    <!-- User Welcome & Stats Header -->
+    <div class="profile-banner">
+      <img src="imag/profile.png" alt="Alex Morgan" class="profile-avatar-large" />
+      <div style="flex: 1;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary);">Welcome back, Alex! 👋</h2>
+          <span class="tag-pill" style="background: rgba(16, 185, 129, 0.15); color: var(--success); border-color: rgba(16, 185, 129, 0.3);">
+            🔥 <span class="user-streak-val">14</span> Day Streak
+          </span>
+        </div>
+        <p style="color: var(--text-secondary); margin: 0.4rem 0 1rem;">
+          You're on track! Level <span class="user-lvl-val">7</span> Developer • <span class="user-xp-val">2850</span> XP earned.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="code-runner.html" class="btn-primary-sm">⚡ Open Playground</a>
+          <a href="roadmap.html" class="btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">Continue Full-Stack Roadmap →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Continue Learning Card -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <div class="card-icon" style="margin-bottom: 0;">🐍</div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">In Progress Tutorial</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0.2rem 0;">Python Data Structures & List Comprehensions</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Master slicing, lambda functions, and dictionary mappings.</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="btn-secondary" style="font-size: 0.85rem;" data-topic-id="python-intro">Mark Complete</button>
+        <a href="explore.html?topic=python" class="btn-primary-sm">Resume Lesson →</a>
+      </div>
+    </div>
+
+    <!-- Structured Categories Grid -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Comprehensive Learning Curriculum</h2>
+        <p class="section-desc">Structured guides, code tutorials, and best practices curated by senior software engineers.</p>
+      </div>
+      <a href="explore.html" class="btn-secondary" style="font-size: 0.875rem;">View All 50+ Guides →</a>
+    </div>
+
+    <div class="categories">
+      <!-- Frontend -->
+      <div class="category">
+        <div>
+          <div class="card-icon">🎨</div>
+          <h3>Frontend Engineering</h3>
+          <p>Master crafting accessible, high-performance, and interactive web interfaces with modern tooling.</p>
+          <ul>
+            <li><a href="explore.html?topic=html">HTML5 Semantic</a></li>
+            <li><a href="explore.html?topic=css">Modern CSS & Grid</a></li>
+            <li><a href="explore.html?topic=javascript">JavaScript ES6+</a></li>
+            <li><a href="explore.html?topic=react">React 18 & Hooks</a></li>
+            <li><a href="explore.html?topic=typescript">TypeScript</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="frontend-track" style="cursor: pointer;">Track Progress</button>
+          <a href="explore.html?cat=frontend" class="card-link-btn">Explore Track →</a>
+        </div>
       </div>
 
-      <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+      <!-- Backend -->
+      <div class="category">
+        <div>
+          <div class="card-icon">⚙️</div>
+          <h3>Backend & Distributed Systems</h3>
+          <p>Build scalable web services, RESTful APIs, database schemas, and microservice architectures.</p>
+          <ul>
+            <li><a href="explore.html?topic=python">Python 3</a></li>
+            <li><a href="api-development.html">Node.js & Express</a></li>
+            <li><a href="api-development.html">REST & GraphQL</a></li>
+            <li><a href="explore.html?topic=sql">PostgreSQL & SQL</a></li>
+            <li><a href="explore.html?topic=docker">Docker & Containers</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="backend-track" style="cursor: pointer;">Track Progress</button>
+          <a href="api-development.html" class="card-link-btn">API Studio →</a>
+        </div>
+      </div>
 
-      <script>
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+      <!-- DSA -->
+      <div class="category">
+        <div>
+          <div class="card-icon">🧠</div>
+          <h3>Data Structures & Algorithms</h3>
+          <p>Crack technical interviews and develop optimal problem-solving instincts with algorithmic visualizers.</p>
+          <ul>
+            <li><a href="data-structures-algorithms.html#arrays">Arrays & HashMaps</a></li>
+            <li><a href="data-structures-algorithms.html#trees">Trees & BSTs</a></li>
+            <li><a href="data-structures-algorithms.html#graphs">Graph Traversal</a></li>
+            <li><a href="data-structures-algorithms.html#dp">Dynamic Programming</a></li>
+            <li><a href="data-structures-algorithms.html#bigo">Big-O Analysis</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="dsa-track" style="cursor: pointer;">Track Progress</button>
+          <a href="data-structures-algorithms.html" class="card-link-btn">DSA Masterclass →</a>
+        </div>
+      </div>
 
-        // Add click tracking
-        document.querySelectorAll('.category a').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Link clicked:', this.textContent);
-                // You can add analytics here
-            });
-        });
+      <!-- Git & Version Control -->
+      <div class="category">
+        <div>
+          <div class="card-icon">🌿</div>
+          <h3>Version Control & Git</h3>
+          <p>Learn real-world collaborative branching workflows, rebase strategies, bisecting, and merge resolution.</p>
+          <ul>
+            <li><a href="version-control-git.html">Git Basics</a></li>
+            <li><a href="version-control-git.html#branching">Feature Branching</a></li>
+            <li><a href="version-control-git.html#rebase">Interactive Rebase</a></li>
+            <li><a href="version-control-git.html#conflicts">Merge Conflicts</a></li>
+            <li><a href="version-control-git.html#github">GitHub Workflows</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="git-track" style="cursor: pointer;">Track Progress</button>
+          <a href="version-control-git.html" class="card-link-btn">Git Terminal →</a>
+        </div>
+      </div>
 
-        // Animate categories on scroll
-        const categories = document.querySelectorAll('.category');
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      <!-- Mobile & App Dev -->
+      <div class="category">
+        <div>
+          <div class="card-icon">📱</div>
+          <h3>Mobile & Cross-Platform</h3>
+          <p>Build native mobile apps for iOS and Android using React Native, Flutter, and progressive web apps.</p>
+          <ul>
+            <li><a href="app-development.html">React Native</a></li>
+            <li><a href="app-development.html">Flutter & Dart</a></li>
+            <li><a href="app-development.html">State Management</a></li>
+            <li><a href="app-development.html">App Store Deploy</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="mobile-track" style="cursor: pointer;">Track Progress</button>
+          <a href="app-development.html" class="card-link-btn">Mobile Guide →</a>
+        </div>
+      </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+      <!-- Roadmaps & Career -->
+      <div class="category">
+        <div>
+          <div class="card-icon">🗺️</div>
+          <h3>Curated Career Roadmaps</h3>
+          <p>Clear, step-by-step career path guides with interactive checklist items and resource links.</p>
+          <ul>
+            <li><a href="roadmap.html?role=frontend">Frontend Engineer</a></li>
+            <li><a href="roadmap.html?role=backend">Backend Specialist</a></li>
+            <li><a href="roadmap.html?role=fullstack">Full-Stack Pro</a></li>
+            <li><a href="roadmap.html?role=devops">DevOps & Cloud</a></li>
+          </ul>
+        </div>
+        <div class="card-footer-action">
+          <button class="tag-pill" data-topic-id="roadmap-track" style="cursor: pointer;">Track Progress</button>
+          <a href="roadmap.html" class="card-link-btn">View Roadmaps →</a>
+        </div>
+      </div>
+    </div>
 
-        categories.forEach(category => {
-            category.style.opacity = '0';
-            category.style.transform = 'translateY(30px)';
-            category.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(category);
-        });
+    <!-- Quick Code Playground Banner -->
+    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15)); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="max-width: 600px;">
+        <span class="ticker-pill" style="margin-bottom: 0.75rem;">ZERO SETUP IDE</span>
+        <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Ready to write some code?
+        </h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Execute Python with full stdout/stderr capture, experiment with ES6+ JavaScript, or preview HTML/CSS live with instant split-pane feedback.
+        </p>
+        <a href="code-runner.html" class="btn-primary">Launch Interactive Playground ⚡</a>
+      </div>
+      <div style="background: #090d16; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: #a5b4fc; max-width: 380px; width: 100%;">
+        <div style="color: #64748b; margin-bottom: 6px;">// Live in-browser execution</div>
+        <div><span style="color: #f43f5e;">def</span> <span style="color: #38bdf8;">two_sum</span>(nums, target):</div>
+        <div style="padding-left: 1rem;">seen = {}</div>
+        <div style="padding-left: 1rem;"><span style="color: #f43f5e;">for</span> i, n <span style="color: #f43f5e;">in</span> enumerate(nums):</div>
+        <div style="padding-left: 2rem;">diff = target - n</div>
+        <div style="padding-left: 2rem;"><span style="color: #f43f5e;">if</span> diff <span style="color: #f43f5e;">in</span> seen: <span style="color: #f43f5e;">return</span> [seen[diff], i]</div>
+        <div style="padding-left: 2rem;">seen[n] = i</div>
+        <div style="margin-top: 6px; color: #10b981;">✓ Execution time: 0.04ms</div>
+      </div>
+    </div>
+  </main>
 
-        // Add hover effects for featured items
-        const featuredItems = document.querySelectorAll('.featured-item');
-        featuredItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'scale(1.05)';
-                item.style.transition = 'transform 0.3s ease';
-            });
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'scale(1)';
-            });
-        });
+  <!-- Floating Widgets -->
+  <div id="chat-button" title="Open AI Coding Assistant">🤖</div>
+  <div id="chat-modal" class="chat-modal">
+    <div class="chat-header">
+      <span>Code Guide AI Assistant</span>
+      <button class="modal-close-btn" id="close-chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-message bot">
+        Hello Alex! What coding topic or algorithm would you like to explore today?
+      </div>
+    </div>
+    <div style="padding: 6px 12px; display: flex; gap: 6px; overflow-x: auto; background: var(--bg-tertiary);">
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Explain React useEffect cleanups')">React Hooks</button>
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Python dictionary comprehensions')">Python Tricks</button>
+      <button class="tag-pill" style="cursor: pointer;" onclick="sendQuickPrompt('Explain Big-O Time vs Space complexity')">Big-O</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask any coding question..." />
+      <button id="send-chat" class="btn-primary-sm">Send</button>
+    </div>
+  </div>
 
-        // Dynamic title update
-        document.addEventListener('DOMContentLoaded', () => {
-            const titles = ['Master Coding Skills', 'Build Amazing Projects', 'Join Our Community'];
-            let index = 0;
-            setInterval(() => {
-                document.querySelector('.hero h2').textContent = titles[index];
-                index = (index + 1) % titles.length;
-            }, 3000);
-        });
+  <div id="improve-button" title="Send Feedback">📝</div>
+  <div id="improve-modal" class="improve-modal">
+    <div class="improve-header">
+      <span>Share Platform Feedback</span>
+      <button class="modal-close-btn" id="close-improve">×</button>
+    </div>
+    <form id="improve-form" style="margin-top: 1rem;">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select id="improve-category" class="form-control" required>
+          <option value="UI">UI / UX Design</option>
+          <option value="Performance">Execution Performance</option>
+          <option value="Content">Tutorial Content</option>
+          <option value="New Feature">Feature Request</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Rating</label>
+        <select id="improve-rating" class="form-control" required>
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+          <option value="2">⭐⭐ - Needs Work</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Comments</label>
+        <textarea id="improve-comment" class="form-control" rows="3" placeholder="What can we improve?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Submit Feedback</button>
+    </form>
+  </div>
 
-        // Animate unique section
-        const uniqueSection = document.querySelector('.unique');
-        uniqueSection.style.opacity = '0';
-        uniqueSection.style.transform = 'translateY(50px)';
-        uniqueSection.style.transition = 'opacity 1s ease, transform 1s ease';
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Code Guide</h4>
+        <p>A comprehensive developer education portal with interactive in-browser code sandboxes, structured roadmaps, and computer science masterclasses.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="explore.html">Frontend Guides</a></li>
+          <li><a href="api-development.html">Backend & APIs</a></li>
+          <li><a href="data-structures-algorithms.html">Data Structures</a></li>
+          <li><a href="code-runner.html">Code Playground</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Roadmaps</h5>
+        <ul>
+          <li><a href="roadmap.html">Full-Stack Roadmap</a></li>
+          <li><a href="roadmap.html">DevOps Engineer</a></li>
+          <li><a href="roadmap.html">AI / ML Engineer</a></li>
+          <li><a href="version-control-git.html">Git Masterclass</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Account & More</h5>
+        <ul>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="settings.html">Preferences</a></li>
+          <li><a href="admin-home.html">Admin Portal</a></li>
+          <li><a href="community.html">Community Discussions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Code Guide Platform. Open source & community driven.</span>
+      <span>Engineered for modern software developers worldwide.</span>
+    </div>
+  </footer>
 
-        const uniqueObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        uniqueObserver.observe(uniqueSection);
-
-        // Animate featured section
-        const featuredSection = document.querySelector('.featured');
-        featuredSection.style.opacity = '0';
-        featuredSection.style.transform = 'translateY(50px)';
-        featuredSection.style.transition = 'opacity 1s ease, transform 1s ease';
-
-        const featuredObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        featuredObserver.observe(featuredSection);
-
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Find matching link in categories
-            const links = document.querySelectorAll('.category ul li a');
-            let found = false;
-            links.forEach(link => {
-                if (link.textContent.toLowerCase() === query) {
-                    found = true;
-                    window.open(link.href, '_blank');
-                }
-            });
-            if (!found) {
-                alert('No matching language found for "' + query + '"');
-            }
-        }
-
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
-
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-
-    </script>
-    <script src='https://cdn.jotfor.ms/agent/embedjs/01993a3e0e01789fa93b8b42e75bf6311a76/embed.js?skipWelcome=1&maximizable=1'></script>
+  <script src="script.js"></script>
 </body>
 </html>

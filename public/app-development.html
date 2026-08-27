@@ -1,129 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>CODING GUIDE - App Development</title>
-      <link rel="icon" href="imag/logo.jpeg" type="image/png" />
-      <link rel="stylesheet" href="style.css" />
-      <style>
-        .option-container {
-          display: flex;
-          justify-content: space-around;
-          margin-top: 20px;
-        }
-        .option {
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 20px;
-          width: 40%;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .option h3 {
-          text-align: center;
-          color: #007bff;
-        }
-        .option ul {
-          margin-top: 10px;
-          list-style-type: disc;
-          padding-left: 20px;
-        }
-      </style>
-  </head>
-      <body>
-      <header class="headbar">
-          <div class="left">
-            <img src="imag/logo.jpeg" alt="Logo" height="50" style="vertical-align: middle; margin-right: 10px;" />
-            <h1 style="display: inline-block; vertical-align: middle;">CODING GUIDE</h1>
-          </div>
-          <div class="searchbar-container">
-            <input
-              type="text"
-              placeholder="Search for your coding Language..."
-              class="searchbar-input"
-            />
-            </div>
-          <div class="right">
-            <a href="home.html" class="logout-btn">HOME</a>
-            <a href="landing.html" class="logout-btn">Logout</a>
-            <a href="profile.html"><img src="imag/profile.png" class="img" height="100px"width="100px" alt="Profile" /></a>
-          </div>
-      </header>
-      <header class="headbar1">
-          <div class="down">
-            <marquee direction="right" behavior="alternate">
-              Your guide to improve your coding
-            </marquee>
-          </div>
-      </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Guide - Mobile App Development Studio</title>
+  <link rel="icon" href="imag/logo.jpeg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      <div class="container">
-        <section class="hero">
-            <h2>App Development Roadmap</h2>
-            <p>Choose your path to master mobile app development for Android and iOS platforms.</p>
-        </section>
+  <!-- Navigation Bar -->
+  <header class="headbar">
+    <a href="home.html" class="left">
+      <div class="brand-logo-wrap">
+        <img src="imag/logo.jpeg" alt="Code Guide Logo" />
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">Code Guide <span class="brand-badge">MOBILE</span></span>
+      </div>
+    </a>
 
-        <section class="option-container">
-          <div class="option">
-            <h3>Android Development</h3>
-            <ul>
-              <li>Learn Java and Kotlin basics</li>
-              <li>Understand Android Studio and SDK</li>
-              <li>Master UI design with XML and Jetpack Compose</li>
-              <li>Work with databases and RESTful APIs</li>
-              <li>Test and debug Android apps</li>
-              <li>Publish apps on Google Play Store</li>
-            </ul>
-          </div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link"><span>🏠</span> Home</a></li>
+      <li><a href="explore.html" class="nav-link"><span>🧭</span> Explore</a></li>
+      <li><a href="code-runner.html" class="nav-link"><span>⚡</span> Playground</a></li>
+      <li><a href="roadmap.html" class="nav-link"><span>🗺️</span> Roadmaps</a></li>
+      <li><a href="data-structures-algorithms.html" class="nav-link"><span>🧠</span> DSA</a></li>
+      <li><a href="community.html" class="nav-link"><span>💬</span> Community</a></li>
+    </ul>
 
-          <div class="option">
-            <h3>iOS Development</h3>
-            <ul>
-              <li>Learn Swift programming language</li>
-              <li>Understand Xcode and iOS SDK</li>
-              <li>Master UI design with SwiftUI and Storyboards</li>
-              <li>Work with Core Data and RESTful APIs</li>
-              <li>Test and debug iOS apps</li>
-              <li>Publish apps on Apple App Store</li>
-            </ul>
-          </div>
-        </section>
+    <div class="searchbar-container">
+      <span class="search-icon-left">🔍</span>
+      <input type="text" placeholder="Search mobile guides..." class="searchbar-input" />
+      <span class="search-kbd-tag">Ctrl K</span>
+    </div>
+
+    <div class="right">
+      <button class="btn-icon theme-toggle-btn" title="Toggle Light/Dark Theme">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <button class="user-avatar-btn" id="user-avatar-btn">
+          <img src="imag/profile.png" alt="Profile" class="user-avatar-img" />
+        </button>
+        <div class="dropdown-menu" id="profile-dropdown">
+          <a href="profile.html" class="dropdown-item"><span>👤</span> My Profile</a>
+          <a href="settings.html" class="dropdown-item"><span>⚙️</span> Settings</a>
+          <a href="javascript:void(0)" onclick="logout()" class="dropdown-item text-danger"><span>🚪</span> Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="hero-badge">📱 Native & Cross-Platform Apps</div>
+      <h1>Mobile Application Engineering</h1>
+      <p>
+        Build, test, and release high-performance native iOS and Android apps using React Native, Expo, and Flutter.
+      </p>
+    </section>
+
+    <div class="grid-cards">
+      <div class="guide-card">
+        <div class="card-icon">⚛️</div>
+        <h3>React Native & Expo</h3>
+        <p>Leverage your React knowledge to build truly native applications with universal UI components and fast refresh.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">iOS & Android</span>
+          <a href="explore.html?topic=react" class="card-link-btn">Explore React Native →</a>
+        </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2024 Coding Guide. All rights reserved.</p>
-      </footer>
-      <script src="script.js"></script>
-      <script>
-        // Search functionality
-        function performSearch() {
-            const query = document.querySelector('.searchbar-input').value.trim().toLowerCase();
-            if (!query) {
-                alert('Please enter a search term');
-                return;
-            }
-            // Search for keywords in app development options
-            const optionItems = document.querySelectorAll('.option ul li');
-            let found = false;
-            optionItems.forEach(item => {
-                if (item.textContent.toLowerCase().includes(query)) {
-                    found = true;
-                    item.style.backgroundColor = 'yellow';
-                    item.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            if (!found) {
-                alert('No matching content found for "' + query + '"');
-            }
-        }
+      <div class="guide-card">
+        <div class="card-icon">💙</div>
+        <h3>Flutter & Dart Engine</h3>
+        <p>Render pixel-perfect 120 FPS UI components natively across mobile, desktop, and web platforms.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Dart / Skia</span>
+          <a href="explore.html" class="card-link-btn">Explore Flutter →</a>
+        </div>
+      </div>
 
-        document.querySelector('.search-btn').addEventListener('click', performSearch);
+      <div class="guide-card">
+        <div class="card-icon">🚀</div>
+        <h3>App Store & Play Store CI/CD</h3>
+        <p>Automate automated testing, OTA code pushes, signing credentials, and fastlane release pipelines.</p>
+        <div class="card-footer-action">
+          <span class="tag-pill">Fastlane & EAS</span>
+          <a href="version-control-git.html" class="card-link-btn">View Pipelines →</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
-        document.querySelector('.searchbar-input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-      </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
